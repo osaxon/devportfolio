@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
@@ -37,8 +38,12 @@ export default function HomePage() {
               Next.JS
             </p>
             <div className='mt-6 flex flex-wrap gap-4'>
-              <Button variant='custom'>Get in touch</Button>
-              <Button variant='custom'>Read more</Button>
+              <Link href='#contact'>
+                <Button variant='custom'>Get in touch</Button>
+              </Link>
+              <Link href='#about'>
+                <Button variant='custom'>Read more</Button>
+              </Link>
             </div>
           </article>
           <SvgElem className='absolute bottom-0 right-0 z-0 translate-y-[30%] translate-x-[25%] scale-50 transform-gpu fill-teal-600 opacity-70 dark:fill-rose-700 dark:opacity-50 md:right-6' />
