@@ -42,7 +42,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           'inline-flex items-center rounded px-4 py-2 font-medium',
           'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
           'shadow-sm',
-          'transition-colors duration-75',
+          'transition-colors duration-200',
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
@@ -59,10 +59,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'hover:dark:bg-zinc-200 hover:dark:text-rose-600',
               'bg-zinc-50',
               'text-teal-700',
-              'hover:bg-zinc-600',
+              'hover:bg-zinc-200',
               'hover:text-teal-500',
               'active:bg-primary-500',
-              'transition-all',
+              'transition-colours',
               'disabled:bg-primary-400 disabled:hover:bg-primary-400',
             ],
             variant === 'outline' && [

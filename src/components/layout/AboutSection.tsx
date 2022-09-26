@@ -1,16 +1,18 @@
 import Image from 'next/image';
 
-import LaravelSVG from '@/components/LaravelSVG';
 import NextSVG from '@/components/NextSVG';
+import NodeSVG from '@/components/NodeSVG';
+import ReactSVG from '@/components/ReactSVG';
 import TailwindSVG from '@/components/TailwindSVG';
 
 export default function AboutSection() {
   return (
-    <section id='about' className='min-h-screen bg-zinc-50 dark:bg-zinc-700'>
+    <section id='about' className='min-h-screen '>
       <div className='layout py-20'>
         <h2>About</h2>
         <h1 className='mt-1'>Oli Saxon</h1>
-        <div className='mt-4 flex flex-col items-center md:flex-row md:items-start'>
+
+        <div className='mt-4 flex flex-col md:flex-row md:items-start'>
           <article className='max-w-prose'>
             <p>
               Hi! I&apos;m Oli. I&apos;ve been learning web development since
@@ -35,21 +37,24 @@ export default function AboutSection() {
               <h4>Current stack</h4>
               <p>The technology I most enjoying working with at the moment.</p>
               <div className='mt-4 flex gap-2'>
+                <ReactSVG />
                 <NextSVG />
+                <NodeSVG />
                 <TailwindSVG />
-                <LaravelSVG />
               </div>
             </aside>
           </article>
 
-          <div className='mt-10 flex-shrink-0 px-10 md:mt-0'>
-            <Image
-              src='https://res.cloudinary.com/djaiep6vj/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1663946907/Images/Me_and_Violetta_qsna4r.png'
-              className='rounded-full'
-              alt='picture of me with my cat'
-              width={200}
-              height={200}
-            />
+          <div className='mx-auto mt-10 flex-shrink-0 px-10 md:mt-0'>
+            <figure>
+              <Image
+                src='https://res.cloudinary.com/djaiep6vj/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1663946907/Images/Me_and_Violetta_qsna4r.png'
+                className='rounded-full md:rounded-sm'
+                alt='picture of me with my cat'
+                width={200}
+                height={200}
+              />
+            </figure>
           </div>
         </div>
       </div>

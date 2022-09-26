@@ -2,14 +2,15 @@ import ArrowLink from '@/components/links/ArrowLink';
 
 const projects = [
   {
-    name: 'Blog',
+    name: 'Personal blog',
     description: 'Blog build with Next.js & Contentful CMS',
     image:
       'https://res.cloudinary.com/djaiep6vj/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1663946907/Images/Me_and_Violetta_qsna4r.png',
   },
   {
     name: 'Plastichem Ltd',
-    description: 'Company website built for Plastichem Ltd',
+    description:
+      'Redisigned and rebuilt a company website using Next.js and Tailwind CSS.',
     image:
       'https://res.cloudinary.com/djaiep6vj/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1663946907/Images/Me_and_Violetta_qsna4r.png',
   },
@@ -30,7 +31,7 @@ const projects = [
 
 export default function AboutSection() {
   return (
-    <section id='projects' className='min-h-screen bg-zinc-50 dark:bg-zinc-700'>
+    <section id='projects' className='min-h-screen'>
       <div className='layout py-20'>
         <h1>Projects</h1>
         <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>

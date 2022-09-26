@@ -6,26 +6,21 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
   { href: '/posts', label: 'Blog' },
   { href: '#contact', label: 'Contact' },
 ];
 
 export default function Header() {
-  // const [isDarkMode, setDarkMode] = useState(false);
   const darkMode = useDarkMode(false, {
     classNameDark: 'dark',
     classNameLight: 'light',
   });
 
-  // const toggleDarkMode = (checked: boolean) => {
-  //   setDarkMode(checked);
-  // };
-
   return (
     <header className='sticky top-0 z-50'>
-      <div className='bg-zinc-50 dark:bg-zinc-800'>
+      <div className='bg-zinc-50 dark:bg-zinc-700'>
         <nav className='layout flex items-center justify-between py-4'>
           <ul className='flex items-center justify-between space-x-3 text-xs md:space-x-4 md:text-base'>
             {links.map(({ href, label }) => (
