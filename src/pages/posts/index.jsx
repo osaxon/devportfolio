@@ -14,11 +14,11 @@ const Posts = ({ posts }) => {
         <section className=' min-h-screen'>
           <div className='layout py-10'>
             <h1>Featured Posts</h1>
-            <ul className='mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+            <ul className='mt-8 grid gap-4 rounded-sm sm:grid-cols-2 xl:grid-cols-3'>
               {posts &&
                 posts.map((post) => (
                   <li
-                    className='animate-shadow w-full scale-100 rounded-md border border-zinc-300 bg-white dark:border-zinc-600'
+                    className='w-full rounded-sm border border-zinc-300 dark:border-zinc-600'
                     key={post.id}
                   >
                     <Post post={post} />
