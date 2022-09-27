@@ -32,7 +32,7 @@ const projects = [
 export default function AboutSection() {
   return (
     <section id='projects' className='min-h-screen'>
-      <div className='layout py-20'>
+      <div className='layout py-10'>
         <h1>Projects</h1>
         <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
           {projects &&

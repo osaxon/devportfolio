@@ -8,7 +8,7 @@ import TailwindSVG from '@/components/TailwindSVG';
 export default function AboutSection() {
   return (
     <section id='about' className='min-h-screen '>
-      <div className='layout py-20'>
+      <div className='layout py-8'>
         <h2>About</h2>
         <h1 className='mt-1'>Oli Saxon</h1>
 
@@ -45,7 +45,7 @@ export default function AboutSection() {
             </aside>
           </article>
 
-          <div className='mx-auto mt-10 flex-shrink-0 px-10 md:mt-0'>
+          <div className='mx-auto mt-4 flex-shrink-0 px-10 md:mt-0'>
             <figure>
               <Image
                 src='https://res.cloudinary.com/djaiep6vj/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1663946907/Images/Me_and_Violetta_qsna4r.png'

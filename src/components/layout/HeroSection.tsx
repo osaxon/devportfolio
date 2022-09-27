@@ -9,7 +9,7 @@ import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
   return (
-    <section className='flex min-h-screen flex-col justify-center'>
+    <section className='flex min-h-[calc(100vh-3rem)] flex-col justify-center'>
       <article className='layout z-50'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -45,7 +45,7 @@ const HeroSection = () => {
               </Button>
             </Link>
           </div>
-          <div className='mt-4 flex w-1/3 flex-wrap gap-4 gap-y-2 md:mt-8'>
+          <div className='mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8'>
             <a
               className='inline-flex items-center gap-1 text-sm font-medium md:text-base'
               target='_blank'

@@ -1,10 +1,10 @@
-import { GraphQLClient } from 'graphql-request';
+import { gql } from '@apollo/client';
 import React from 'react';
 
 import Layout from '../../components/layout/Layout';
 import { Post } from '../../components/Post';
 import Seo from '../../components/Seo';
-const graphcms = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT);
+import client from '../../lib/apolloClient';
 
 const Posts = ({ posts }) => {
   return (
@@ -12,12 +12,15 @@ const Posts = ({ posts }) => {
       <Seo />
       <main className='dark:bg-zinc-800'>
         <section className=' min-h-screen'>
-          <div className='layout py-20'>
-            <h2>Posts</h2>
-            <ul className='mt-8 grid grid-cols-1 gap-2 md:grid-cols-2'>
+          <div className='layout py-10'>
+            <h1>Featured Posts</h1>
+            <ul className='mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
               {posts &&
                 posts.map((post) => (
-                  <li key={post.id}>
+                  <li
+                    className='animate-shadow w-full scale-100 rounded-md border border-zinc-300 bg-white dark:border-zinc-600'
+                    key={post.id}
+                  >
                     <Post post={post} />
                   </li>
                 ))}
@@ -30,33 +33,37 @@ const Posts = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-  const { posts } = await graphcms.request(
-    `
-    query Posts {
-      posts {
-        createdAt
-        id
-        publishedAt
-        title
-        updatedAt
-        content {
-          html
+  const data = await client.query({
+    query: gql`
+      query Posts {
+        posts {
+          createdAt
+          id
+          publishedAt
+          title
+          updatedAt
+          content {
+            html
+          }
+          excerpt
+          coverImage {
+            height
+            width
+            url
+          }
+          slug
         }
-        coverImage {
-          height
-          width
-          url
-        }
-        slug
       }
-    }
-    `
-  );
+    `,
+  });
+
+  const posts = data.data.posts;
 
   return {
     props: {
       posts,
     },
+    revalidate: 10,
   };
 }
 
