@@ -52,11 +52,7 @@ export async function getStaticPaths() {
           content {
             html
           }
-          coverImage {
-            height
-            width
-            url
-          }
+          coverImage
           slug
           seo {
             id
@@ -94,12 +90,7 @@ export async function getStaticProps({ params }) {
           content {
             html
           }
-          coverImage {
-            id
-            url
-            width
-            height
-          }
+          coverImage
           date
           publishedAt
           tags

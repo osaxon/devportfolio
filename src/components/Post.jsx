@@ -2,35 +2,54 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import TopicButton from './TopicButton';
+import DateComponent from './DateComponent';
 
 export const Post = ({ post }) => {
-  const topics = post.topics;
-
   return (
     <Link href={`posts/${post.slug}`}>
-      <a className='block h-full rounded-md'>
-        <div className='flex flex-col'>
+      <div className='flex h-full flex-col overflow-hidden rounded-lg   shadow-lg'>
+        <div className='relative h-48 w-full flex-shrink-0'>
           <Image
-            alt='blog image'
+            className='object-cover'
+            layout='fill'
             src={post.coverImage.url}
-            width={post.coverImage.width}
-            height={post.coverImage.height}
+            alt=''
           />
-          <div className='px-4 py-2'>
-            <h4 className=''>{post.title}</h4>
-            <p>{post.excerpt}</p>
-            <ul className='mt-2 flex flex-wrap items-center justify-start gap-2 align-middle'>
-              {topics &&
-                topics.map((topic) => (
-                  <li key={topic.slug}>
-                    <TopicButton topic={topic} />
-                  </li>
-                ))}
-            </ul>
+        </div>
+        <div className='flex flex-1 flex-col justify-between p-6'>
+          <div className='flex-1'>
+            <a href={post.href} className='mt-2 block'>
+              <p className='text-xl font-semibold text-gray-900'>
+                {post.title}
+              </p>
+              <p className='mt-3 text-base text-gray-500'>{post.excerpt}</p>
+            </a>
+          </div>
+          <div className='mt-6 flex items-center'>
+            <div className='flex-shrink-0'>
+              <span className='sr-only'>Oli</span>
+              <Image
+                className='rounded-full'
+                src={post.author?.picture?.url}
+                alt=''
+                objectFit='cover'
+                width='45px'
+                height='45px'
+              />
+            </div>
+            <div className='ml-3'>
+              <p className='text-sm font-medium text-gray-900'>
+                {post.author?.name}
+              </p>
+              <div className='flex space-x-1 text-sm text-gray-500'>
+                <DateComponent dateString={post.date} />
+                <span aria-hidden='true'>&middot;</span>
+                <span>{post.readTime}m read</span>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
+      </div>
     </Link>
   );
 };

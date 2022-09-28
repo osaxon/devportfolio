@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Layout from '../../components/layout/Layout';
 import { Post } from '../../components/Post';
 import Seo from '../../components/Seo';
-import TopicButton from '../../components/TopicButton';
 import client from '../../lib/apolloClient';
 
 const Posts = ({ posts, topics }) => {
@@ -26,12 +25,12 @@ const Posts = ({ posts, topics }) => {
   const handleClick = (e) => {
     e.preventDefault();
     const val = e.target.value;
-    if (val === 'x') {
+    if (!val) {
       setSelectedTopics('');
       setFilteredPosts(posts);
       return;
     }
-    if (!selectedTopics.includes(val)) {
+    if (val && !selectedTopics.includes(val)) {
       setSelectedTopics([...selectedTopics, val]);
     }
     setFilteredPosts(filterByTopic(posts, val));
@@ -45,39 +44,40 @@ const Posts = ({ posts, topics }) => {
           <div className='layout py-10'>
             <h1>Featured Posts</h1>
             <div className='flex items-start justify-between gap-2 pt-4 md:flex-row'>
-              <ul className='flex flex-wrap items-center justify-start gap-2  align-middle'>
+              <ul className='flex flex-wrap items-start gap-2'>
+                {selectedTopics && (
+                  <li>
+                    <button
+                      type='button'
+                      onClick={(e) => handleClick(e)}
+                      className='inline-flex items-center rounded-full border border-transparent bg-rose-800/75 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-rose-700/75 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2'
+                    >
+                      Clear
+                    </button>
+                  </li>
+                )}
                 {topics &&
                   topics.map((topic) => (
                     <li key={topic.slug}>
-                      <TopicButton
-                        handler={(e) => handleClick(e)}
-                        topic={topic}
+                      <button
+                        value={topic.slug}
                         disabled={checkSelectedTopic(topic.slug)}
-                      />
+                        onClick={(e) => handleClick(e)}
+                        className='inline-flex items-center rounded-full border border-transparent bg-teal-600/75 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-teal-700/75 focus:outline-none focus:ring-2 focus:ring-teal-500/75 focus:ring-offset-2'
+                      >
+                        {topic.name}
+                      </button>
                     </li>
                   ))}
               </ul>
-              {topics && (
-                <button
-                  onClick={(e) => handleClick(e)}
-                  value='x'
-                  className='rounded-full bg-teal-400 px-4 py-1 text-xs text-zinc-900 dark:bg-rose-600 dark:text-zinc-50'
-                >
-                  Clear
-                </button>
-              )}
             </div>
 
-            <ul className='grid gap-4 rounded-sm py-6 sm:grid-cols-2 xl:grid-cols-3'>
-              {filteredPosts &&
-                filteredPosts.map((post) => (
-                  <li
-                    className='w-full rounded-sm border border-zinc-300 dark:border-zinc-600'
-                    key={post.id}
-                  >
-                    <Post post={post} />
-                  </li>
-                ))}
+            <ul className='mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3'>
+              {filteredPosts.map((post) => (
+                <li key={post.slug}>
+                  <Post post={post} />
+                </li>
+              ))}
             </ul>
           </div>
         </section>
@@ -94,19 +94,21 @@ export async function getStaticProps() {
           createdAt
           id
           tags
-          publishedAt
+          date
+          author {
+            id
+            name
+            picture
+          }
           title
           updatedAt
           content {
             html
           }
+          coverImage
           excerpt
-          coverImage {
-            height
-            width
-            url
-          }
           slug
+          readTime
           topics {
             id
             slug
