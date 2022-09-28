@@ -57,13 +57,15 @@ const Posts = ({ posts, topics }) => {
                     </li>
                   ))}
               </ul>
-              <button
-                onClick={(e) => handleClick(e)}
-                value='x'
-                className='rounded-full bg-teal-400 px-4 py-1 text-xs text-zinc-900 dark:bg-rose-600 dark:text-zinc-50'
-              >
-                Clear
-              </button>
+              {topics && (
+                <button
+                  onClick={(e) => handleClick(e)}
+                  value='x'
+                  className='rounded-full bg-teal-400 px-4 py-1 text-xs text-zinc-900 dark:bg-rose-600 dark:text-zinc-50'
+                >
+                  Clear
+                </button>
+              )}
             </div>
 
             <ul className='grid gap-4 rounded-sm py-6 sm:grid-cols-2 xl:grid-cols-3'>
