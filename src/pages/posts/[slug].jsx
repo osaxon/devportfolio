@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import Image from 'next/image';
 import React from 'react';
 
+import DateComponent from '../../components/DateComponent';
 import Layout from '../../components/layout/Layout';
 import Seo from '../../components/Seo';
 import client from '../../lib/apolloClient';
@@ -9,11 +10,18 @@ import client from '../../lib/apolloClient';
 const Post = ({ post, content }) => {
   return (
     <Layout>
-      <Seo />
+      <Seo
+        description={post.seo.description}
+        title={post.seo.title}
+        keywords={post.seo.keywords.toString()}
+      />
       <main className='dark:bg-zinc-700'>
         <section className='min-h-screen'>
           <div className='layout py-10'>
-            <h1 className='mb-4'>{post.title}</h1>
+            <h1>{post.title}</h1>
+            <h4 className='py-4 font-thin italic text-zinc-500'>
+              <DateComponent dateString={post.date} />
+            </h4>
             <Image
               alt={post.title}
               src={post.coverImage.url}
@@ -38,7 +46,7 @@ export async function getStaticPaths() {
         posts {
           createdAt
           id
-          publishedAt
+          date
           title
           updatedAt
           content {
@@ -50,6 +58,15 @@ export async function getStaticPaths() {
             url
           }
           slug
+          seo {
+            id
+            title
+            description
+            keywords
+            image {
+              url
+            }
+          }
         }
       }
     `,
@@ -88,6 +105,16 @@ export async function getStaticProps({ params }) {
           tags
           title
           slug
+          excerpt
+          seo {
+            id
+            title
+            description
+            keywords
+            image {
+              url
+            }
+          }
         }
       }
     `,

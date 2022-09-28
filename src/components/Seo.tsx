@@ -6,6 +6,7 @@ const defaultMeta = {
   title: 'Freelance web developer',
   siteName: 'Oli Saxon - portfolio and blog for freelance web developer.',
   description: '',
+  keywords: '',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   url: 'https://www.olisaxon.co.uk',
   type: 'website',
@@ -47,6 +48,7 @@ export default function Seo(props: SeoProps) {
       <title>{meta.title}</title>
       <meta name='robots' content={meta.robots} />
       <meta content={meta.description} name='description' />
+      <meta name='keywords' content={meta.keywords} />
       <meta property='og:url' content={`${meta.url}${router.asPath}`} />
       <link rel='canonical' href={`${meta.url}${router.asPath}`} />
       {/* Open Graph */}
