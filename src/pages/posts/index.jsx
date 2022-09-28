@@ -19,6 +19,10 @@ const Posts = ({ posts, topics }) => {
     });
   }
 
+  function checkSelectedTopic(topic) {
+    return selectedTopics.includes(topic);
+  }
+
   const handleClick = (e) => {
     e.preventDefault();
     const val = e.target.value;
@@ -48,6 +52,7 @@ const Posts = ({ posts, topics }) => {
                       <TopicButton
                         handler={(e) => handleClick(e)}
                         topic={topic}
+                        disabled={checkSelectedTopic(topic.slug)}
                       />
                     </li>
                   ))}
