@@ -1,12 +1,33 @@
 import { gql } from '@apollo/client';
-import React from 'react';
+import React, { useState } from 'react';
 
 import Layout from '../../components/layout/Layout';
 import { Post } from '../../components/Post';
 import Seo from '../../components/Seo';
+import TopicButton from '../../components/TopicButton';
 import client from '../../lib/apolloClient';
 
-const Posts = ({ posts }) => {
+const Posts = ({ posts, topics }) => {
+  const [filteredPosts, setFilteredPosts] = useState(() => [...posts]);
+
+  function filterByTopic(data, q) {
+    return data.filter((post) => {
+      return post.topics.some((topic) => {
+        return topic.slug === q;
+      });
+    });
+  }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const val = e.target.value;
+    if (val === 'x') {
+      setFilteredPosts(posts);
+      return;
+    }
+    setFilteredPosts(filterByTopic(posts, val));
+  };
+
   return (
     <Layout>
       <Seo />
@@ -14,9 +35,30 @@ const Posts = ({ posts }) => {
         <section className=' min-h-screen'>
           <div className='layout py-10'>
             <h1>Featured Posts</h1>
-            <ul className='mt-8 grid gap-4 rounded-sm sm:grid-cols-2 xl:grid-cols-3'>
-              {posts &&
-                posts.map((post) => (
+            <div className='flex items-start justify-between gap-2 pt-4 md:flex-row'>
+              <ul className='flex flex-wrap items-center justify-start gap-2  align-middle'>
+                {topics &&
+                  topics.map((topic) => (
+                    <li key={topic.slug}>
+                      <TopicButton
+                        handler={(e) => handleClick(e)}
+                        topic={topic}
+                      />
+                    </li>
+                  ))}
+              </ul>
+              <button
+                onClick={(e) => handleClick(e)}
+                value='x'
+                className='rounded-full bg-zinc-200 px-4 py-1 text-xs text-zinc-900 dark:bg-rose-600 dark:text-zinc-50'
+              >
+                Clear
+              </button>
+            </div>
+
+            <ul className='grid gap-4 rounded-sm py-6 sm:grid-cols-2 xl:grid-cols-3'>
+              {filteredPosts &&
+                filteredPosts.map((post) => (
                   <li
                     className='w-full rounded-sm border border-zinc-300 dark:border-zinc-600'
                     key={post.id}
@@ -39,6 +81,7 @@ export async function getStaticProps() {
         posts {
           createdAt
           id
+          tags
           publishedAt
           title
           updatedAt
@@ -52,16 +95,28 @@ export async function getStaticProps() {
             url
           }
           slug
+          topics {
+            id
+            slug
+            name
+          }
+        }
+        topics {
+          id
+          slug
+          name
         }
       }
     `,
   });
 
   const posts = data.data.posts;
+  const topics = data.data.topics;
 
   return {
     props: {
       posts,
+      topics,
     },
     revalidate: 10,
   };
