@@ -5545,6 +5545,13 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-social-icons@^5.14.0":
+  "integrity" "sha512-E5pR2pIJM0vW1BhX7LdMlQS6MD2qOF8wdIm+PEfqFpW3Pn/VwLtbrjywE3/DG+rZ1YYM0GM8M11jaBxelbz/yQ=="
+  "resolved" "https://registry.npmjs.org/react-social-icons/-/react-social-icons-5.14.0.tgz"
+  "version" "5.14.0"
+  dependencies:
+    "prop-types" "^15.7.2"
+
 "react-spring@^9.0.0-rc.3":
   "integrity" "sha512-CelndH5CfAhiitqc2BbJ4b7DBou5M8qX2NMnc3vBHJIhp1Dp7KMA5nGCEtj9M9xOtCIpbPwB5XWbjttCDXOL4g=="
   "resolved" "https://registry.npmjs.org/react-spring/-/react-spring-9.5.4.tgz"
