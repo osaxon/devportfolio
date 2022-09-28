@@ -38,7 +38,10 @@ const Posts = ({ posts, topics }) => {
 
   return (
     <Layout>
-      <Seo />
+      <Seo
+        description='Latest blog posts from Oli Saxon.'
+        keywords='web development, Next.js'
+      />
       <main className='dark:bg-zinc-800'>
         <section className=' min-h-screen'>
           <div className='layout py-10'>

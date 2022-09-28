@@ -6,8 +6,12 @@ import DateComponent from '../../components/DateComponent';
 import Layout from '../../components/layout/Layout';
 import Seo from '../../components/Seo';
 import client from '../../lib/apolloClient';
+import { buildImage } from '../../lib/cloudinary';
 
 const Post = ({ post, content }) => {
+  const image = buildImage(post.coverImage.public_id)
+    .resize('w_600,h_400')
+    .toURL();
   return (
     <Layout>
       <Seo
@@ -24,9 +28,9 @@ const Post = ({ post, content }) => {
             </h4>
             <Image
               alt={post.title}
-              src={post.coverImage.url}
-              width={post.coverImage.width}
-              height={post.coverImage.height}
+              src={image}
+              width={600}
+              height={400}
               objectFit='cover'
             />
             <article className='mt-4'>

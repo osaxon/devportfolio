@@ -3,17 +3,23 @@ import Link from 'next/link';
 import React from 'react';
 
 import DateComponent from './DateComponent';
+import { buildImage } from '../lib/cloudinary';
 
 export const Post = ({ post }) => {
+  const coverImageURL = buildImage(post.coverImage.public_id)
+    .resize('w_600,h_400')
+    .toURL();
   return (
     <Link href={`posts/${post.slug}`}>
       <div className='flex h-full flex-col overflow-hidden rounded-lg   shadow-lg'>
-        <div className='relative h-48 w-full flex-shrink-0'>
+        <div className='relative flex-shrink-0'>
           <Image
-            className='object-cover'
-            layout='fill'
-            src={post.coverImage.url}
+            height={400}
+            width={600}
+            src={coverImageURL}
             alt=''
+            priority={true}
+            objectFit='contain'
           />
         </div>
         <div className='flex flex-1 flex-col justify-between p-6'>
