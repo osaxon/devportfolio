@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 // !STARTERCONF Change these default meta
 const defaultMeta = {
   title: 'Freelance web developer',
-  siteName: 'Oli Saxon - freelance web developer',
+  siteName: 'Oli Saxon - portfolio and blog for freelance web developer.',
   description: '',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: '',
+  url: 'https://www.olisaxon.co.uk',
   type: 'website',
   robots: 'follow, index',
   /**
@@ -57,7 +57,6 @@ export default function Seo(props: SeoProps) {
       <meta name='image' property='og:image' content={meta.image} />
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@th_clarence' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />
