@@ -9,6 +9,7 @@ import client from '../../lib/apolloClient';
 
 const Posts = ({ posts, topics }) => {
   const [filteredPosts, setFilteredPosts] = useState(() => [...posts]);
+  const [selectedTopics, setSelectedTopics] = useState('');
 
   function filterByTopic(data, q) {
     return data.filter((post) => {
@@ -22,8 +23,12 @@ const Posts = ({ posts, topics }) => {
     e.preventDefault();
     const val = e.target.value;
     if (val === 'x') {
+      setSelectedTopics('');
       setFilteredPosts(posts);
       return;
+    }
+    if (!selectedTopics.includes(val)) {
+      setSelectedTopics([...selectedTopics, val]);
     }
     setFilteredPosts(filterByTopic(posts, val));
   };
@@ -50,7 +55,7 @@ const Posts = ({ posts, topics }) => {
               <button
                 onClick={(e) => handleClick(e)}
                 value='x'
-                className='rounded-full bg-zinc-200 px-4 py-1 text-xs text-zinc-900 dark:bg-rose-600 dark:text-zinc-50'
+                className='rounded-full bg-teal-400 px-4 py-1 text-xs text-zinc-900 dark:bg-rose-600 dark:text-zinc-50'
               >
                 Clear
               </button>
