@@ -111,7 +111,7 @@ export async function getStaticProps() {
             name
           }
         }
-        topics {
+        topics(where: { NOT: {}, posts_every: {} }) {
           id
           slug
           name
