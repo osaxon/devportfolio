@@ -90,7 +90,7 @@ const Posts = ({ posts, topics }) => {
 
             <ul className='mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3'>
               {filteredPosts.map((post) => (
-                <li key={post.slug}>
+                <li className='cursor-pointer' key={post.slug}>
                   <Post post={post} />
                 </li>
               ))}
