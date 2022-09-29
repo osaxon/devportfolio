@@ -9,9 +9,11 @@ export const Post = ({ post }) => {
   const coverImageURL = buildImage(post.coverImage.public_id)
     .resize('w_600,h_400')
     .toURL();
+
+  const topics = post.topics;
   return (
     <Link href={`posts/${post.slug}`}>
-      <div className='flex h-full flex-col overflow-hidden rounded-lg   shadow-lg'>
+      <div className='flex h-full flex-col overflow-hidden rounded-sm shadow-lg'>
         <div className='relative flex-shrink-0'>
           <Image
             height={400}
@@ -24,6 +26,16 @@ export const Post = ({ post }) => {
         </div>
         <div className='flex flex-1 flex-col justify-between p-6'>
           <div className='flex-1'>
+            <ul className='flex gap-1'>
+              {topics &&
+                topics.map((topic) => (
+                  <li key={topic.slug}>
+                    <span className='inline-flex items-center rounded-full border-transparent bg-zinc-600/75 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-zinc-700/75     disabled:opacity-25'>
+                      {topic.name}
+                    </span>
+                  </li>
+                ))}
+            </ul>
             <a href={post.href} className='mt-2 block'>
               <p className='text-xl font-semibold text-gray-900'>
                 {post.title}

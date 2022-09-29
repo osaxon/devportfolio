@@ -14,7 +14,17 @@ export default function AboutSection() {
 
         <div className='mt-4 flex flex-col md:flex-row md:items-start'>
           <article className='max-w-prose'>
-            <p>
+            <figure className='float-right ml-4 border pt-1 md:ml-8'>
+              <Image
+                src='https://res.cloudinary.com/djaiep6vj/image/upload/c_thumb,w_200,g_face/v1664380136/Images/IMG_2952_ahurxs.jpg'
+                className='md:rounded-sm'
+                alt='picture of Oli Saxon'
+                objectFit='cover'
+                width={150}
+                height={200}
+              />
+            </figure>
+            <p className='md:text-justify'>
               Hi! I&apos;m Oli. I&apos;ve been learning web development since
               February 2021 when I enrolled on a Full Stack coding bootcamp with
               Manchester University. I&apos;ve worked in the IT industry for
@@ -22,6 +32,7 @@ export default function AboutSection() {
               aspect of coding and development, so decided to invest and give it
               a go properly.
             </p>
+
             <br />
             <p>
               After graduating in August 2021, I realised there&apos;s so much
@@ -44,18 +55,6 @@ export default function AboutSection() {
               </div>
             </aside>
           </article>
-
-          <div className='mx-auto mt-4 flex-shrink-0 px-10 md:mt-0'>
-            <figure>
-              <Image
-                src='https://res.cloudinary.com/djaiep6vj/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1663946907/Images/Me_and_Violetta_qsna4r.png'
-                className='rounded-full md:rounded-sm'
-                alt='picture of me with my cat'
-                width={200}
-                height={200}
-              />
-            </figure>
-          </div>
         </div>
       </div>
     </section>
