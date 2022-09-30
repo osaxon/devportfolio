@@ -1,7 +1,14 @@
 import { gql } from '@apollo/client';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import Image from 'next/image';
-import React from 'react';
+import Prism from 'prismjs';
+import React, { useEffect } from 'react';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-jsx';
+
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 
 import DateComponent from '../../components/DateComponent';
 import Layout from '../../components/layout/Layout';
@@ -13,6 +20,10 @@ const Post = ({ post, content }) => {
   const image = buildImage(post.coverImage.public_id)
     .resize('w_600,h_400')
     .toURL();
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
   return (
     <Layout>
@@ -29,16 +40,31 @@ const Post = ({ post, content }) => {
             <h4 className='py-4 font-thin italic text-zinc-500'>
               <DateComponent dateString={post.date} />
             </h4>
-            <Image
-              alt={post.title}
-              src={image}
-              width={600}
-              height={400}
-              objectFit='cover'
-            />
+            <div className='flex justify-center'>
+              <Image
+                alt={post.title}
+                src={image}
+                width={600}
+                height={400}
+                objectFit='contain'
+              />
+            </div>
+
             <article className='mt-4'>
               {/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
-              <RichText content={content.raw} />
+
+              <RichText
+                content={content.raw}
+                renderers={{
+                  code_block: ({ children }) => {
+                    return (
+                      <pre className='line-numbers language-jsx'>
+                        <code>{children}</code>
+                      </pre>
+                    );
+                  },
+                }}
+              />
             </article>
           </div>
         </section>
