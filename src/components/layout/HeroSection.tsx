@@ -32,7 +32,7 @@ const HeroSection = () => {
             My name&apos;s Oliver
           </h2>
 
-          <p className='mt-4 max-w-4xl md:mt-6 md:text-lg'>
+          <p className='prose mt-4 max-w-4xl dark:prose-invert md:mt-6 md:text-lg'>
             I&apos;m a freelance web developer specialising in React and Next.JS
           </p>
           <div className='mt-6 flex flex-wrap gap-4'>
@@ -69,7 +69,7 @@ const HeroSection = () => {
         </motion.div>
       </article>
 
-      <SvgElem className='ark:opacity-50 absolute bottom-0 right-6 z-0 w-[calc(100%-3rem)] transform-gpu fill-teal-600 opacity-25 dark:fill-rose-700 md:w-[600px] ' />
+      <SvgElem className='absolute top-10 right-0 z-0 w-[calc(100%-1rem)] transform-gpu fill-rose-600 opacity-25 dark:fill-teal-600 dark:opacity-50 md:w-[600px] ' />
     </section>
   );
 };

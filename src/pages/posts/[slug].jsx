@@ -50,7 +50,7 @@ const Post = ({ post, content }) => {
               />
             </div>
 
-            <article className='mt-4'>
+            <article className='prose mt-4 dark:prose-invert'>
               {/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
 
               <RichText
@@ -58,11 +58,16 @@ const Post = ({ post, content }) => {
                 renderers={{
                   code_block: ({ children }) => {
                     return (
-                      <pre className='line-numbers language-jsx'>
+                      <pre className='line-numbers language-jsx '>
                         <code>{children}</code>
                       </pre>
                     );
                   },
+                  ol: ({ children }) => (
+                    <ol className='font-bold'>
+                      <p>{children}</p>
+                    </ol>
+                  ),
                 }}
               />
             </article>

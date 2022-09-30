@@ -56,16 +56,16 @@
   }
 
   h3 {
-    @apply font-primary text-lg font-bold text-zinc-900 transition-colors dark:text-zinc-50 md:text-2xl;
+    @apply font-primary text-lg font-bold  transition-colors  md:text-2xl;
   }
 
   h4 {
-    @apply font-primary text-base font-bold text-zinc-900 transition-colors dark:text-zinc-50 md:text-lg;
+    @apply font-primary text-base font-bold  transition-colors  md:text-lg;
   }
 
   body,
   p {
-    @apply font-primary text-sm text-zinc-900 transition-colors dark:text-zinc-50 md:text-base;
+    @apply font-primary text-sm  transition-colors  md:text-base;
   }
   /* #endregion  /**======== Typography =========== */
 

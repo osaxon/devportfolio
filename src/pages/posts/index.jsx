@@ -88,7 +88,7 @@ const Posts = ({ posts, topics }) => {
               </ul>
             </div>
 
-            <ul className='mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3'>
+            <ul className='mt-12 grid gap-5 md:grid-cols-2 md:flex-row xl:grid-cols-3'>
               {filteredPosts.map((post) => (
                 <li className='cursor-pointer' key={post.slug}>
                   <Post post={post} />

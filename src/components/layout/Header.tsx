@@ -5,11 +5,11 @@ import useDarkMode from 'use-dark-mode';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/posts', label: 'Blog' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/', label: 'olisaxon.co.uk' },
+  { href: '/about', label: '/about' },
+  { href: '/projects', label: '/projects' },
+  { href: '/posts', label: '/blog' },
+  { href: '#contact', label: '/contact' },
 ];
 
 export default function Header() {
@@ -27,7 +27,7 @@ export default function Header() {
               <li key={`${href}${label}`}>
                 <UnstyledLink
                   href={href}
-                  className='group rounded-sm py-2 font-medium text-zinc-900 transition-colors focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-zinc-50 dark:hover:text-primary-300'
+                  className='group rounded-sm py-2 font-medium text-zinc-900 transition-colors hover:text-rose-600 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-zinc-50 dark:hover:text-teal-300'
                 >
                   {label}
                 </UnstyledLink>
