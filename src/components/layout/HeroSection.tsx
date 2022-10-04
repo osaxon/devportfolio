@@ -64,7 +64,7 @@ const HeroSection = () => {
         </motion.div>
       </article>
 
-      <SvgElem className='absolute top-10 right-0 z-0 w-[calc(100%-1rem)] transform-gpu fill-rose-600 opacity-25 dark:fill-teal-600 dark:opacity-50 md:w-[600px] ' />
+      <SvgElem className='absolute top-10 right-2 z-0 w-[calc(100%-1rem)] transform-gpu fill-rose-600 opacity-25 dark:fill-teal-600 dark:opacity-50 md:right-10 md:w-[600px] ' />
     </section>
   );
 };
