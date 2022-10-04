@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-// !STARTERCONF Change these default meta
+// Seo.jsx
+// Default meta will be applied whenever the Seo component is rendered
+// Properties can be overwritten per page
 const defaultMeta = {
-  title: 'Freelance web developer',
-  siteName: 'Oli Saxon - portfolio and blog for freelance web developer.',
+  title: 'Site title',
+  siteName: 'Site name',
   description: '',
   keywords: '',
-  url: 'https://www.olisaxon.co.uk',
+  url: 'https://www.yourwebsite.co.uk',
   type: 'website',
   robots: 'follow, index',
   image: '',

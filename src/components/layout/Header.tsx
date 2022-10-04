@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { VscColorMode } from 'react-icons/vsc';
 import useDarkMode from 'use-dark-mode';
 
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -22,7 +22,7 @@ export default function Header() {
     <header className='sticky top-0 z-50'>
       <div className='bg-zinc-50 dark:bg-zinc-700'>
         <nav className='layout flex items-center justify-between py-4'>
-          <ul className='flex items-center justify-between space-x-3 text-xs md:space-x-4 md:text-base'>
+          <ul className='flex items-center justify-between space-x-3 text-sm md:space-x-4 md:text-base'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
                 <UnstyledLink
@@ -34,10 +34,10 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <DarkModeSwitch
-            checked={darkMode.value}
-            onChange={darkMode.toggle}
-            size={28}
+
+          <VscColorMode
+            className='h-6 w-6 rotate-45 cursor-pointer fill-slate-700 dark:fill-slate-100'
+            onClick={darkMode.toggle}
           />
         </nav>
       </div>

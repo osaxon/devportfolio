@@ -9,7 +9,7 @@ import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
   return (
-    <section className='flex min-h-[calc(100vh-3rem)] flex-col justify-center'>
+    <section className='flex min-h-screen flex-col justify-center'>
       <article className='layout z-50'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -22,12 +22,7 @@ const HeroSection = () => {
           }}
           exit={{ opacity: 0, y: -50 }}
         >
-          <h1 className='text-2xl md:text-4xl xl:text-5xl'>
-            Hello there{' '}
-            <span role='img' aria-label='waving hand' className='h-2'>
-              👋
-            </span>
-          </h1>
+          <h1 className='text-2xl md:text-4xl xl:text-5xl'>Hello there </h1>
           <h2 className='mt-1 text-3xl md:text-5xl xl:text-6xl'>
             My name&apos;s Oliver
           </h2>
@@ -45,25 +40,25 @@ const HeroSection = () => {
               </Button>
             </Link>
           </div>
-          <div className='mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8'>
+          <div className='prose prose-slate mt-4 flex flex-wrap gap-4 gap-y-2 dark:prose-invert md:mt-8'>
             <a
-              className='inline-flex items-center gap-1 text-sm font-medium md:text-base'
+              className='inline-flex items-center gap-1 no-underline'
               target='_blank'
               rel='noopener noreferrer'
               href='https://shorturl.at/fr369'
             >
-              <CgFileDocument className='text-zinc-500' />
-              <p className='text-sm text-zinc-500'>CV</p>
+              <CgFileDocument className='h-6 w-6' />
+              CV
             </a>
 
             <a
-              className='inline-flex items-center gap-1 text-sm font-medium md:text-base'
+              className='inline-flex items-center gap-1 no-underline'
               target='_blank'
               rel='noopener noreferrer'
               href='https://shorturl.at/fr369'
             >
-              <AiFillGithub className='text-zinc-500' />
-              <p className='text-sm text-zinc-500'>osaxon</p>
+              <AiFillGithub className='h-6 w-6' />
+              osaxon
             </a>
           </div>
         </motion.div>

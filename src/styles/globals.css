@@ -97,6 +97,11 @@
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
   }
+
+  button[aria-disabled='true'] {
+    opacity: 50%;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .animated-underline {
       transition: 0.3s ease;

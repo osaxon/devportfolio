@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+import Avatar from '@/components/Avatar';
 import NextSVG from '@/components/NextSVG';
 import NodeSVG from '@/components/NodeSVG';
 import ReactSVG from '@/components/ReactSVG';
@@ -13,18 +12,11 @@ export default function AboutSection() {
         <h2>About</h2>
         <h1 className='mt-1'>Oli Saxon</h1>
 
-        <div className='mt-4 flex flex-col md:flex-row md:items-start'>
-          <article className='prose z-50 max-w-prose dark:prose-invert'>
-            <figure className='float-right ml-4 bg-rose-400 pt-1  dark:bg-teal-400 md:ml-8'>
-              <Image
-                src='https://res.cloudinary.com/djaiep6vj/image/upload/c_thumb,w_200,g_face/v1664380136/Images/IMG_2952_ahurxs.jpg'
-                className='grayscale'
-                alt='picture of Oli Saxon'
-                objectFit='cover'
-                width={150}
-                height={200}
-              />
-            </figure>
+        <div className='flex flex-col md:flex-row md:items-start'>
+          <article className='prose prose-2xl prose-zinc z-50 text-justify font-medium dark:prose-invert'>
+            <div className='not-prose float-right ml-4 pt-5'>
+              <Avatar />
+            </div>
             <p className='md:text-justify'>
               Hi! I&apos;m Oli. I&apos;ve been learning web development since
               February 2021 when I enrolled on a Full Stack coding bootcamp with
@@ -43,10 +35,10 @@ export default function AboutSection() {
               I&apos;m currently trying to improve my web design and UX by
               researching other web developers and designers for inspiration.
             </p>
-            <aside className='mt-4'>
+            <aside>
               <h4>Current stack</h4>
               <p>The technology I most enjoying working with at the moment.</p>
-              <div className='mt-4 flex gap-2'>
+              <div className='flex gap-2'>
                 <ReactSVG />
                 <NextSVG />
                 <NodeSVG />

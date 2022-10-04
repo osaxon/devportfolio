@@ -5,6 +5,11 @@ module.exports = {
   },
 
   reactStrictMode: true,
+  experimental: {
+    image: {
+      allowFutureImage: true,
+    },
+  },
 
   images: {
     domains: [
