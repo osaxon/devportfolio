@@ -71,38 +71,35 @@ const Posts = ({ posts, tags }) => {
         keywords='web development, Next.js'
       />
       <main className='dark:bg-zinc-800'>
-        <section className=' min-h-screen'>
+        <section className='min-h-[calc(100vh-3.5rem)]'>
           <div className='layout py-10'>
-            <h1>Featured Posts</h1>
-            <div className='flex items-start justify-between gap-2 pt-4 md:flex-row'>
-              <ul className='flex flex-wrap items-start gap-2'>
-                <li>
-                  <button
-                    type='button'
-                    value='all'
-                    onClick={() => clearTags()}
-                    className='inline-flex items-center rounded-full border border-transparent bg-teal-600/75 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-teal-700/75 disabled:opacity-25'
-                  >
-                    All
-                  </button>
-                </li>
-                {tags &&
-                  tags.map((tag) => (
-                    <li key={tag}>
-                      <button
-                        value={tag}
-                        aria-disabled={checkSelectedTag(tag)}
-                        onClick={(e) => handleClick(e)}
-                        className='inline-flex items-center rounded-full border border-transparent bg-teal-600/75 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-teal-700/75'
-                      >
-                        {tag}
-                      </button>
-                    </li>
-                  ))}
-              </ul>
-            </div>
+            <h1 className='prose prose-2xl'>Featured Posts</h1>
+            <ul className='flex flex-wrap gap-2'>
+              <li>
+                <button
+                  type='button'
+                  onClick={() => clearTags()}
+                  className='rounded-md bg-teal-600/75 py-1.5 px-3 text-xs text-white shadow-sm hover:bg-teal-700/75 disabled:opacity-25'
+                >
+                  Clear
+                </button>
+              </li>
+              {tags &&
+                tags.map((tag) => (
+                  <li key={tag}>
+                    <button
+                      value={tag}
+                      aria-disabled={checkSelectedTag(tag)}
+                      onClick={(e) => handleClick(e)}
+                      className='inline-flex rounded-md  bg-teal-600/75 px-3 py-1.5 text-xs  text-white shadow-sm hover:bg-teal-700/75'
+                    >
+                      {tag}
+                    </button>
+                  </li>
+                ))}
+            </ul>
 
-            <ul className='mt-12 grid gap-1 md:grid-cols-2 md:flex-row xl:grid-cols-3'>
+            <ul className='mt-12 grid gap-1 md:grid-cols-2 xl:grid-cols-3'>
               {filteredPosts.map((post) => (
                 <li
                   className='cursor-pointer border-b-2 border-teal-300'

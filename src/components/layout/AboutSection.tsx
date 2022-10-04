@@ -7,7 +7,7 @@ import TailwindSVG from '@/components/TailwindSVG';
 
 export default function AboutSection() {
   return (
-    <section id='about' className='min-h-screen '>
+    <section id='about' className='min-h-[calc(100vh-3.5rem)]'>
       <div className='layout py-8'>
         <h2>About</h2>
         <h1 className='mt-1'>Oli Saxon</h1>

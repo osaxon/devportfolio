@@ -9,7 +9,7 @@ import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
   return (
-    <section className='flex min-h-screen flex-col justify-center'>
+    <section className='flex min-h-[calc(100vh-3.5rem)] flex-col justify-center'>
       <article className='layout z-50'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
