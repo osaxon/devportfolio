@@ -18,12 +18,19 @@ const projects = ({ projects }) => {
         <section className='min-h-[calc(100vh-3.5rem)]'>
           <div className='layout py-10'>
             <h1 className='prose prose-2xl'>Projects</h1>
-            <ul className='grid gap-1 md:grid-cols-2'>
+            <ul
+              className={clsxm('grid gap-1', [
+                evenNum && ['grid-cols-1 md:grid-cols-3'],
+              ])}
+            >
               {projects &&
                 projects.map((project) => (
                   <li
                     className={clsxm('cursor-pointer', [
                       !evenNum && ['w-full md:first:col-span-2'],
+                      evenNum && [
+                        'w-full md:first:col-span-2 md:last:col-span-2',
+                      ],
                     ])}
                     key={project.slug}
                   >

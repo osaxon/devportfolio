@@ -4,7 +4,7 @@
  */
 module.exports = {
   // !STARTERCONF Change the siteUrl
-  siteUrl: 'https://olisaxon.co.uk',
+  siteUrl: 'https://www.olisaxon.co.uk',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],

@@ -14,7 +14,7 @@ const Project = ({ project }) => {
             alt={`cover image for project: ${project.name}`}
             src={image}
             fill
-            className='w-full object-cover opacity-60 group-hover:opacity-100'
+            className='w-full rounded-sm object-cover group-hover:opacity-60'
           />
           <article className='prose prose-violet relative flex flex-col text-center dark:prose-invert'>
             <h1 className='z-50 text-3xl'>{project.name}</h1>
