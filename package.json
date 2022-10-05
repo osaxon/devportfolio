@@ -25,6 +25,7 @@
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
+    "firebase": "^9.10.0",
     "framer-motion": "^7.3.6",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
