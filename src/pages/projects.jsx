@@ -42,12 +42,13 @@ export async function getStaticProps() {
   const data = await client.query({
     query: gql`
       query MyProjectsQuery {
-        projects {
+        projects(orderBy: publishedAt_DESC) {
           name
           slug
           coverImage
           shortDescription
           tags
+          url
         }
       }
     `,
