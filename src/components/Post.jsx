@@ -10,7 +10,7 @@ export const Post = ({ post }) => {
   const tags = post.tags;
   return (
     <Link href={`posts/${post.slug}`}>
-      <div className='flex h-full min-h-[550px] flex-col rounded-sm bg-zinc-50 shadow-lg dark:bg-zinc-600/50'>
+      <div className='flex h-full min-h-[550px] flex-col rounded-sm shadow-lg'>
         <div className='relative h-[350px] max-w-full overflow-hidden md:h-[220px]'>
           <Image alt='' src={image} fill className=' w-full object-cover' />
         </div>
@@ -20,19 +20,13 @@ export const Post = ({ post }) => {
               {tags &&
                 tags.map((tag) => (
                   <li key={tag}>
-                    <span className='prose inline-flex items-center rounded-full border-transparent bg-zinc-600/75 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-zinc-700/75 disabled:opacity-25'>
-                      {tag}
-                    </span>
+                    <span className='badge disabled:opacity-25'>{tag}</span>
                   </li>
                 ))}
             </ul>
             <a href={post.href} className='mt-2 block'>
-              <p className='prose text-xl font-semibold dark:prose-invert'>
-                {post.title}
-              </p>
-              <p className='prose mt-3 text-base dark:prose-invert'>
-                {post.excerpt}
-              </p>
+              <p className='prose text-xl font-semibold'>{post.title}</p>
+              <p className='prose mt-3 text-base'>{post.excerpt}</p>
             </a>
           </div>
           <PostAuthor post={post} />

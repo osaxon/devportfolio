@@ -33,11 +33,11 @@ const Post = ({ post, content }) => {
         title={post.seo.title}
         keywords={post.seo.keywords.toString()}
       />
-      <main className='dark:bg-zinc-700'>
+      <main>
         <section className='min-h-screen'>
           <div className='layout py-10'>
             <h1>{post.title}</h1>
-            <h4 className='py-4 font-thin italic text-zinc-500'>
+            <h4 className='py-4 font-thin italic'>
               <DateComponent dateString={post.date} />
             </h4>
             <div className='flex justify-center'>
@@ -50,9 +50,7 @@ const Post = ({ post, content }) => {
               />
             </div>
 
-            <article className='prose mt-4 dark:prose-invert'>
-              {/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
-
+            <article>
               <RichText
                 content={content.raw}
                 renderers={{

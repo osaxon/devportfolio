@@ -8,9 +8,9 @@ export default function HomePage() {
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
-      <Seo />
+      <Seo title='Oli Saxon | freelance developer' />
 
-      <main className='dark:bg-zinc-800'>
+      <main className='bg-texture-bg'>
         <HeroSection />
       </main>
     </Layout>

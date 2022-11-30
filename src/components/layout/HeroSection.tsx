@@ -4,13 +4,12 @@ import React from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { CgFileDocument } from 'react-icons/cg';
 
-import Button from '@/components/buttons/Button';
 import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
   return (
-    <section className='flex min-h-[calc(100vh-3.5rem)] flex-col justify-center'>
-      <article className='layout z-50'>
+    <section className='flex min-h-[calc(100vh-5rem)]'>
+      <div className='layout z-50'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -21,26 +20,30 @@ const HeroSection = () => {
             },
           }}
           exit={{ opacity: 0, y: -50 }}
+          className='flex h-full flex-col justify-center'
         >
-          <h1 className='text-2xl md:text-4xl xl:text-5xl'>Hello there </h1>
-          <h2 className='mt-1 text-3xl md:text-5xl xl:text-6xl'>
-            My name&apos;s Oliver
-          </h2>
+          <div className='flex flex-col'>
+            <h1 className='text-2xl md:text-4xl xl:text-5xl'>Hello there </h1>
+            <h2 className='mt-1 text-3xl md:text-5xl xl:text-6xl'>
+              My name&apos;s Oliver
+            </h2>
 
-          <p className='prose mt-4 max-w-4xl dark:prose-invert md:mt-6 md:text-lg'>
-            I&apos;m a freelance web developer specialising in React and Next.JS
-          </p>
+            <p className=' mt-4 max-w-4xl md:mt-6 md:text-lg'>
+              I&apos;m a freelance web developer specialising in React and
+              Next.JS
+            </p>
+          </div>
+
           <div className='mt-6 flex flex-wrap gap-4'>
             <Link href='mailto:oliverrsaxon@gmail.com'>
-              <Button variant='custom'>Get in touch</Button>
+              <button className='btn'>Get in touch</button>
             </Link>
             <Link href='/about'>
-              <Button className='transition-all' variant='custom'>
-                Read more
-              </Button>
+              <button className='btn transition-all'>Read more</button>
             </Link>
           </div>
-          <div className='prose prose-slate mt-4 flex flex-wrap gap-4 gap-y-2 dark:prose-invert md:mt-8'>
+
+          <div className='mt-4 inline-flex gap-4'>
             <a
               className='inline-flex items-center gap-1 no-underline'
               target='_blank'
@@ -62,9 +65,8 @@ const HeroSection = () => {
             </a>
           </div>
         </motion.div>
-      </article>
-
-      <SvgElem className='absolute top-10 right-2 z-0 w-[calc(100%-1rem)] transform-gpu fill-rose-600 opacity-25 dark:fill-teal-600 dark:opacity-50 md:right-10 md:w-[600px] ' />
+      </div>
+      <SvgElem className='absolute bottom-6 right-2 z-0 w-[calc(100%-1rem)] transform-gpu fill-secondary opacity-25 dark:opacity-50 md:right-10 md:w-[600px]' />
     </section>
   );
 };

@@ -48,11 +48,11 @@
   /* #region  /**=========== Typography =========== */
 
   h1 {
-    @apply font-primary text-2xl font-bold text-zinc-900 transition-colors dark:text-zinc-50 md:text-4xl;
+    @apply font-primary text-2xl font-bold transition-colors md:text-4xl;
   }
 
   h2 {
-    @apply font-primary text-xl font-bold text-zinc-900 transition-colors dark:text-zinc-50 md:text-3xl;
+    @apply font-primary text-xl font-bold transition-colors md:text-3xl;
   }
 
   h3 {
@@ -77,6 +77,10 @@
 
   .bg-dark a.custom-link {
     @apply border-gray-200 hover:border-gray-200/0;
+  }
+
+  .btn {
+    @apply rounded-none;
   }
 
   /* Class to adjust with sticky footer */

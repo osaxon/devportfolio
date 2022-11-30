@@ -70,8 +70,8 @@ const Posts = ({ posts, tags }) => {
         description='Latest blog posts from Oli Saxon.'
         keywords='web development, Next.js'
       />
-      <main className='dark:bg-zinc-800'>
-        <section className='min-h-[calc(100vh-3.5rem)]'>
+      <main>
+        <section className='min-h-[calc(100vh-5rem)]'>
           <div className='layout py-10'>
             <h1 className='prose prose-2xl'>Featured Posts</h1>
             <ul className='flex flex-wrap gap-2'>
@@ -79,7 +79,7 @@ const Posts = ({ posts, tags }) => {
                 <button
                   type='button'
                   onClick={() => clearTags()}
-                  className='rounded-md bg-teal-600/75 py-1.5 px-3 text-xs text-white shadow-sm hover:bg-teal-700/75 disabled:opacity-25'
+                  className='badge'
                 >
                   Clear
                 </button>
@@ -91,7 +91,7 @@ const Posts = ({ posts, tags }) => {
                       value={tag}
                       aria-disabled={checkSelectedTag(tag)}
                       onClick={(e) => handleClick(e)}
-                      className='inline-flex rounded-md  bg-teal-600/75 px-3 py-1.5 text-xs  text-white shadow-sm hover:bg-teal-700/75'
+                      className='badge'
                     >
                       {tag}
                     </button>
