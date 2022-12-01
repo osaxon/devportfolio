@@ -1,6 +1,5 @@
 import { useTheme } from 'next-themes';
 import * as React from 'react';
-import useDarkMode from 'use-dark-mode';
 
 import UnstyledLink from '@/components/links/UnstyledLink';
 
@@ -12,10 +11,6 @@ const links = [
 ];
 
 export default function Header() {
-  const darkMode = useDarkMode(false, {
-    classNameDark: 'dark',
-    classNameLight: 'light',
-  });
   const themes = [
     'light',
     'dark',
@@ -52,7 +47,7 @@ export default function Header() {
   return (
     <header className='sticky top-0 z-50'>
       <div>
-        <nav className='layout flex items-center justify-between py-4'>
+        <nav className='layout flex items-center justify-between'>
           <ul className='flex items-center justify-between space-x-3 text-sm md:space-x-4 md:text-base'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
@@ -66,12 +61,8 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* <VscColorMode
-            className='h-6 w-6 rotate-45 cursor-pointer fill-slate-700 dark:fill-slate-100'
-            onClick={darkMode.toggle}
-          /> */}
           <button
-            className='btn btn-square'
+            className='btn-square btn rounded-none'
             onClick={() =>
               setTheme(themes[Math.floor(Math.random() * themes.length)])
             }

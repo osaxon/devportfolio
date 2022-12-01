@@ -9,7 +9,7 @@ const about = () => {
   return (
     <Layout>
       <Seo title='about page' />
-      <main>
+      <main className='bg-texture-bg'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{

@@ -10,37 +10,54 @@ import client from '../lib/apolloClient';
 const projects = ({ projects }) => {
   return (
     <Layout>
-      <Seo title='projects' />
-      <main>
+      <Seo title='Oli Saxon | Projects' />
+      <main className='bg-texture-bg'>
         <section className='min-h-[calc(100vh-3.5rem)]'>
           <div className='layout py-10'>
             <h1>Projects</h1>
-            <div className='mt-10 overflow-x-auto'>
-              <table className='table-zebra table w-full'>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>NAME</th>
-                    <th>DESC</th>
-                    <th>TYPE</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {projects &&
-                    projects.map((project, i) => (
-                      <tr key={project.slug}>
-                        <TableRow
-                          slug={project.slug}
-                          rowNum={i + 1}
-                          url={project.url}
-                          name={project.name}
-                          desc={project.shortDescription}
-                          tech={project.tags}
-                        />
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
+            <div className='my-10 flex flex-col bg-base-100'>
+              <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
+                <div className='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
+                  <div className='overflow-x-auto'>
+                    <table className='min-w-full'>
+                      <thead className='border-b'>
+                        <tr>
+                          <th
+                            scope='col'
+                            className='px-6 py-4 text-left text-sm font-medium'
+                          >
+                            Name
+                          </th>
+                          <th
+                            scope='col'
+                            className='px-6 py-4 text-left text-sm font-medium'
+                          >
+                            Desc
+                          </th>
+                          <th
+                            scope='col'
+                            className='hidden px-6 py-4 text-left text-sm font-medium md:block'
+                          >
+                            Tags
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {projects &&
+                          projects.map((project, i) => (
+                            <tr key={project.name} className='border-b'>
+                              <TableRow
+                                name={project.name}
+                                desc={project.shortDescription}
+                                tech={project.tags}
+                              />
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -73,17 +73,8 @@ const Posts = ({ posts, tags }) => {
       <main>
         <section className='min-h-[calc(100vh-5rem)]'>
           <div className='layout py-10'>
-            <h1 className='prose prose-2xl'>Featured Posts</h1>
+            <h1 className='prose-2xl prose'>Featured Posts</h1>
             <ul className='flex flex-wrap gap-2'>
-              <li>
-                <button
-                  type='button'
-                  onClick={() => clearTags()}
-                  className='badge'
-                >
-                  Clear
-                </button>
-              </li>
               {tags &&
                 tags.map((tag) => (
                   <li key={tag}>
@@ -99,12 +90,9 @@ const Posts = ({ posts, tags }) => {
                 ))}
             </ul>
 
-            <ul className='mt-12 grid gap-1 md:grid-cols-2 xl:grid-cols-3'>
+            <ul className='mt-12 flex flex-col gap-y-4'>
               {filteredPosts.map((post) => (
-                <li
-                  className='cursor-pointer border-b-2 border-teal-300'
-                  key={post.slug}
-                >
+                <li className='cursor-pointer' key={post.slug}>
                   <Post post={post} />
                 </li>
               ))}
