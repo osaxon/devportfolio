@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import HeroSection from '@/components/layout/HeroSection';
 import Layout from '@/components/layout/Layout';
+import SkillsSection from '@/components/layout/SkillsSection';
 import Seo from '@/components/Seo';
 
 export default function HomePage() {
@@ -12,6 +13,7 @@ export default function HomePage() {
 
       <main className='bg-texture-bg'>
         <HeroSection />
+        <SkillsSection />
       </main>
     </Layout>
   );

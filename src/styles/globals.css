@@ -56,11 +56,11 @@
   }
 
   h3 {
-    @apply font-primary text-lg font-bold  transition-colors  md:text-2xl;
+    @apply font-primary text-lg font-bold text-base-content  transition-colors  md:text-2xl;
   }
 
   h4 {
-    @apply font-primary text-base font-bold  transition-colors  md:text-lg;
+    @apply font-primary text-base font-bold text-primary-content transition-colors  md:text-lg;
   }
 
   body,
@@ -79,14 +79,14 @@
     @apply border-gray-200 hover:border-gray-200/0;
   }
 
-  .btn {
-    @apply rounded-none;
-  }
-
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
   }
+}
+
+.btn {
+  @apply rounded-[1px];
 }
 
 @layer utilities {

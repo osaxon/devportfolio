@@ -8,8 +8,8 @@ import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
   return (
-    <section className='flex min-h-[calc(100vh-5rem)]'>
-      <div className='layout relative z-50'>
+    <section className='flex min-h-screen'>
+      <div className='layout z-300 relative'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -65,7 +65,7 @@ const HeroSection = () => {
             </a>
           </div>
         </motion.div>
-        <SvgElem className=' absolute bottom-6 right-2 -z-50 w-[calc(100%-1rem)] rotate-6 transform-gpu fill-info opacity-25 dark:opacity-50 md:right-10 md:w-[600px]' />
+        <SvgElem className=' absolute bottom-6 right-2 -z-50 w-[calc(100%-1rem)] rotate-6 transform-gpu fill-secondary dark:opacity-50 md:right-10 md:w-[600px]' />
       </div>
     </section>
   );

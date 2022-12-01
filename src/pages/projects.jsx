@@ -12,8 +12,8 @@ const projects = ({ projects }) => {
     <Layout>
       <Seo title='Oli Saxon | Projects' />
       <main className='bg-texture-bg'>
-        <section className='min-h-[calc(100vh-3.5rem)]'>
-          <div className='layout py-10'>
+        <section className='min-h-screen'>
+          <div className='layout pt-20'>
             <h1>Projects</h1>
             <div className='my-10 flex flex-col bg-base-100'>
               <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
@@ -89,34 +89,5 @@ export async function getStaticProps() {
     },
   };
 }
-
-/*
-      <main className=' dark:bg-zinc-800'>
-        <section className='min-h-[calc(100vh-3.5rem)]'>
-          <div className='layout py-10'>
-            <h1 className='prose prose-2xl'>Projects</h1>
-            <ul className='grid grid-cols-1 gap-1 md:grid-cols-3'>
-              {projects &&
-                projects.map((project, index) => (
-                  <li
-                    className={clsxm('cursor-pointer', [
-                      evenNum && ['w-full md:first:col-span-3'],
-
-                      index === 2 && !evenNum && ['md:col-span-2'],
-                      index === 3 && !evenNum && ['md:col-span-2'],
-                      evenNum && [
-                        'w-full md:first:col-span-2 md:last:col-span-2',
-                      ],
-                    ])}
-                    key={project.slug}
-                  >
-                    <Project index={index} project={project} />
-                  </li>
-                ))}
-            </ul>
-          </div>
-        </section>
-      </main>
-*/
 
 export default projects;

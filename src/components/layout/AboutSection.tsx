@@ -7,16 +7,13 @@ import TailwindSVG from '@/components/TailwindSVG';
 
 export default function AboutSection() {
   return (
-    <section id='about' className='min-h-[calc(100vh-5rem)]'>
-      <div className='layout py-8'>
+    <section id='about' className='min-h-screen pt-20'>
+      <div className='layout'>
         <h2>About</h2>
-        <h1 className='mt-1'>Oli Saxon</h1>
 
-        <div className='flex flex-col md:flex-row md:items-start'>
+        <h1 className='mt-1'>Oli Saxon</h1>
+        <div className='flex'>
           <article className='prose z-50 mt-4 text-justify font-medium'>
-            <div className='float-right ml-4'>
-              <Avatar />
-            </div>
             <p className='prose text-xl md:text-justify'>
               Hi! I&apos;m Oli. I&apos;ve been learning web development since
               February 2021 when I enrolled on a Full Stack coding bootcamp with
@@ -24,7 +21,6 @@ export default function AboutSection() {
               over 10 years and always enjoyed the more creative and technical
               aspect that coding and development offers.
             </p>
-
             <p>
               After graduating in August 2021, I realised there&apos;s so much
               more to learn still yet and I&apos;m enjoying the ongoing
@@ -35,14 +31,19 @@ export default function AboutSection() {
               researching other web developers and designers for inspiration.
             </p>
 
-            <aside>
-              <h4>Current stack</h4>
-              <p>The technology I most enjoying working with at the moment.</p>
-              <div className='flex gap-2'>
-                <ReactSVG />
-                <NextSVG />
-                <NodeSVG />
-                <TailwindSVG />
+            <aside className='not-prose flex items-center justify-between gap-4 border-t border-b py-4'>
+              <Avatar />
+              <div className='flex flex-col'>
+                <h4 className='text-base-content'>Current stack</h4>
+                <p>
+                  The technology I most enjoying working with at the moment.
+                </p>
+                <div className='flex gap-2'>
+                  <ReactSVG />
+                  <NextSVG />
+                  <NodeSVG />
+                  <TailwindSVG />
+                </div>
               </div>
             </aside>
           </article>
