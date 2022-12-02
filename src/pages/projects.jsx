@@ -13,7 +13,7 @@ const projects = ({ projects }) => {
       <Seo title='Oli Saxon | Projects' />
       <main className='bg-texture-bg'>
         <section className='min-h-screen'>
-          <div className='layout pt-20'>
+          <div className='layout py-10'>
             <h1>Projects</h1>
             <div className='my-10 flex flex-col bg-base-100'>
               <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>

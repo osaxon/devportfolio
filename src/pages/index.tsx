@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { ContactForm } from '@/components/ContactForm';
 import HeroSection from '@/components/layout/HeroSection';
 import Layout from '@/components/layout/Layout';
 import SkillsSection from '@/components/layout/SkillsSection';
@@ -14,6 +15,7 @@ export default function HomePage() {
       <main className='bg-texture-bg'>
         <HeroSection />
         <SkillsSection />
+        <ContactForm />
       </main>
     </Layout>
   );

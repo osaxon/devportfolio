@@ -3,13 +3,21 @@ import Link from 'next/link';
 import React from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { CgFileDocument } from 'react-icons/cg';
+import { useParallax } from 'react-scroll-parallax';
 
 import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
+  const { ref } = useParallax<HTMLDivElement>({
+    speed: -50,
+    rotate: [180, 360],
+    translateX: [-50, 50],
+    translateY: [-100, 100],
+  });
+
   return (
-    <section className='flex min-h-screen'>
-      <div className='layout z-300 relative'>
+    <section className='flex min-h-[calc(100vh-5rem)] overflow-hidden md:min-h-[50vh]'>
+      <div className='layout relative z-30'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -20,11 +28,11 @@ const HeroSection = () => {
             },
           }}
           exit={{ opacity: 0, y: -50 }}
-          className='z-50 flex h-full flex-col justify-center'
+          className='z-50 flex h-[calc(100vw-10rem)] flex-col py-20'
         >
           <div className='flex flex-col'>
-            <h1 className='text-2xl md:text-4xl xl:text-5xl'>Hello there </h1>
-            <h2 className='mt-1 text-3xl md:text-5xl xl:text-6xl'>
+            <h1 className='text-5xl md:text-5xl xl:text-6xl'>Hello there </h1>
+            <h2 className='mt-1 text-4xl md:text-5xl xl:text-6xl'>
               My name&apos;s Oliver
             </h2>
 
@@ -34,38 +42,44 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className='mt-6 flex flex-wrap gap-4'>
-            <Link href='mailto:oliverrsaxon@gmail.com'>
-              <button className='btn'>Get in touch</button>
-            </Link>
-            <Link href='/about'>
-              <button className='btn transition-all'>Read more</button>
-            </Link>
-          </div>
+          <div>
+            <div className='mt-6 flex flex-wrap gap-4'>
+              <Link href='mailto:oliverrsaxon@gmail.com'>
+                <button className='btn'>Get in touch</button>
+              </Link>
+              <Link href='/about'>
+                <button className='btn transition-all'>Read more</button>
+              </Link>
+            </div>
+            <div className='mt-4 inline-flex gap-4'>
+              <a
+                className='inline-flex items-center gap-1 no-underline'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://shorturl.at/fr369'
+              >
+                <CgFileDocument className='h-6 w-6' />
+                CV
+              </a>
 
-          <div className='mt-4 inline-flex gap-4'>
-            <a
-              className='inline-flex items-center gap-1 no-underline'
-              target='_blank'
-              rel='noopener noreferrer'
-              href='https://shorturl.at/fr369'
-            >
-              <CgFileDocument className='h-6 w-6' />
-              CV
-            </a>
-
-            <a
-              className='inline-flex items-center gap-1 no-underline'
-              target='_blank'
-              rel='noopener noreferrer'
-              href='https://shorturl.at/fr369'
-            >
-              <AiFillGithub className='h-6 w-6' />
-              osaxon
-            </a>
+              <a
+                className='inline-flex items-center gap-1 no-underline'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://shorturl.at/fr369'
+              >
+                <AiFillGithub className='h-6 w-6' />
+                osaxon
+              </a>
+            </div>
           </div>
         </motion.div>
-        <SvgElem className=' absolute bottom-6 right-2 -z-50 w-[calc(100%-1rem)] rotate-6 transform-gpu fill-secondary dark:opacity-50 md:right-10 md:w-[600px]' />
+        <div
+          ref={ref}
+          className='absolute top-36 left-0 -z-50 overflow-hidden md:left-32'
+        >
+          <SvgElem className='transform-gpu fill-accent opacity-80 dark:opacity-50' />
+        </div>
       </div>
     </section>
   );

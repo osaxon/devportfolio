@@ -1,32 +1,26 @@
 import Link from 'next/link';
 import React from 'react';
-import { BiBrain } from 'react-icons/bi';
 import { FaFigma } from 'react-icons/fa';
-import { IoIosPeople } from 'react-icons/io';
-import { RiRoadMapLine } from 'react-icons/ri';
+import { FaHandsHelping } from 'react-icons/fa';
+import { IoIosAnalytics } from 'react-icons/io';
 
 import SkillCard from '@/components/SkillCard';
 
 const skills = [
   {
-    name: 'Web Design',
-    desc: 'Design beautiful websites',
+    name: 'Design & Build',
+    desc: 'All aspects of web development from design to deployment',
     icon: FaFigma,
   },
   {
-    name: 'Ideas',
-    desc: 'Turn your ideas into a business',
-    icon: BiBrain,
+    name: 'Support',
+    desc: 'Support and collobaration for your site or web app',
+    icon: FaHandsHelping,
   },
   {
-    name: 'Team',
-    desc: 'Team management',
-    icon: IoIosPeople,
-  },
-  {
-    name: 'Product Management',
-    desc: 'Define product roadmap strategy and vision',
-    icon: RiRoadMapLine,
+    name: 'Analytics',
+    desc: 'Use analytics tools to monitor your sites traffic and performance',
+    icon: IoIosAnalytics,
   },
 ];
 
@@ -34,11 +28,11 @@ const SkillsSection = () => {
   return (
     <section
       id='skills'
-      className='flex min-h-screen bg-secondary bg-opacity-50 py-10'
+      className='flex min-h-[calc(100vh-15rem)] border-y-2 bg-neutral bg-opacity-75 py-10'
     >
       <div className='layout flex flex-col items-center'>
         <h2 className='text-5xl'>Skills</h2>
-        <div className='mt-16 grid w-full grid-cols-1 gap-8 md:grid-cols-2'>
+        <div className='mt-16 grid w-full grid-cols-1 gap-8 md:grid-cols-3'>
           {skills &&
             skills.map((skill) => (
               <div key={skill.name}>
@@ -48,9 +42,13 @@ const SkillsSection = () => {
               </div>
             ))}
         </div>
-        <Link href='/projects'>
-          <a className='btn-secondary btn-wide btn mt-8'>Past Projects</a>
-        </Link>
+
+        <div className='mt-10 flex w-full flex-col items-center border-opacity-50'>
+          <div className='divider' />
+          <Link href='/projects'>
+            <a className='btn-wide btn mt-8 shadow-lg'>Past Projects</a>
+          </Link>
+        </div>
       </div>
     </section>
   );
