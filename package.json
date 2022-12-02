@@ -21,6 +21,7 @@
     "@apollo/client": "^3.6.9",
     "@cloudinary/url-gen": "^1.8.6",
     "@graphcms/rich-text-react-renderer": "^0.6.1",
+    "@sendgrid/mail": "^7.7.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "axios": "^0.27.2",
     "cloudinary-build-url": "^0.2.4",
