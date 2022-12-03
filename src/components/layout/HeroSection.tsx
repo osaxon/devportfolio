@@ -9,15 +9,15 @@ import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
   const { ref } = useParallax<HTMLDivElement>({
-    speed: -50,
-    rotate: [180, 360],
+    speed: -100,
+    rotateZ: [240, 360],
     translateX: [-50, 50],
-    translateY: [-100, 100],
+    scale: [0.75, 2.75, 'easeInQuad'],
   });
 
   return (
-    <section className='flex min-h-[calc(100vh-5rem)] overflow-hidden md:min-h-[50vh]'>
-      <div className='layout relative z-30'>
+    <section className='flex overflow-hidden'>
+      <div className='layout relative z-30 min-h-screen'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -28,7 +28,7 @@ const HeroSection = () => {
             },
           }}
           exit={{ opacity: 0, y: -50 }}
-          className='z-50 flex h-[calc(100vw-10rem)] flex-col py-20'
+          className='z-50 flex flex-col py-20'
         >
           <div className='flex flex-col'>
             <h1 className='text-5xl md:text-5xl xl:text-6xl'>Hello there </h1>
@@ -76,7 +76,7 @@ const HeroSection = () => {
         </motion.div>
         <div
           ref={ref}
-          className='absolute top-36 left-0 -z-50 overflow-hidden md:left-32'
+          className='absolute left-0 top-20 -z-50  overflow-hidden md:left-96'
         >
           <SvgElem className='transform-gpu fill-accent opacity-80 dark:opacity-50' />
         </div>
