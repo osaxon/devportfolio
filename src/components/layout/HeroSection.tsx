@@ -9,9 +9,9 @@ import SvgElem from '@/components/SvgElem';
 
 const HeroSection = () => {
   const { ref } = useParallax<HTMLDivElement>({
-    speed: -100,
     rotateZ: [240, 360],
-    translateX: [-50, 50],
+    translateY: [0, 70],
+    translateX: [-45, 45],
     scale: [0.75, 2.75, 'easeInQuad'],
   });
 
@@ -76,7 +76,7 @@ const HeroSection = () => {
         </motion.div>
         <div
           ref={ref}
-          className='absolute left-0 top-20 -z-50  overflow-hidden md:left-96'
+          className='absolute left-0 top-10 -z-50  overflow-hidden md:left-80'
         >
           <SvgElem className='transform-gpu fill-accent opacity-80 dark:opacity-50' />
         </div>
