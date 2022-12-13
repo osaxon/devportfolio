@@ -1,17 +1,18 @@
-import { gql } from '@apollo/client';
-import uniq from 'lodash/uniq';
 import React, { useCallback, useState } from 'react';
 import { useEffect } from 'react';
+import { dehydrate, QueryClient, useQuery } from 'react-query';
 
 import Layout from '../../components/layout/Layout';
 import { Post } from '../../components/Post';
 import Seo from '../../components/Seo';
-import client from '../../lib/apolloClient';
+import { getAllPosts } from '../../lib/queries';
 
-const Posts = ({ posts, tags }) => {
+const Posts = () => {
+  const { data } = useQuery('posts', getAllPosts);
+  const { posts, tags } = data;
+
   const [filteredPosts, setFilteredPosts] = useState(() => [...posts]);
   const [selectedTags, setSelectedTags] = useState([]);
-
   // check if tag has been selected
   const checkSelectedTag = useCallback(
     (tag) => {
@@ -105,60 +106,13 @@ const Posts = ({ posts, tags }) => {
 };
 
 export async function getStaticProps() {
-  const data = await client.query({
-    query: gql`
-      query Posts {
-        posts {
-          createdAt
-          id
-          tags
-          date
-          author {
-            id
-            name
-            picture
-          }
-          title
-          updatedAt
-          content {
-            html
-          }
-          coverImage
-          excerpt
-          slug
-          readTime
-          topics {
-            id
-            slug
-            name
-          }
-        }
-        topics(where: { NOT: {}, posts_every: {} }) {
-          id
-          slug
-          name
-        }
-      }
-    `,
-  });
-
-  const posts = data.data.posts;
-
-  function extractTags(data) {
-    const tags = [];
-    data.forEach((post) => post.tags.forEach((tag) => tags.push(tag)));
-    return tags;
-  }
-
-  // remove duplictes
-  const tags = uniq(extractTags(posts));
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery('posts', getAllPosts);
 
   return {
     props: {
-      posts,
-      tags,
+      dehydratedState: dehydrate(queryClient),
     },
-    revalidate: 10,
   };
 }
 
