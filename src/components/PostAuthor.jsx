@@ -6,13 +6,16 @@ import DateComponent from './DateComponent';
 const PostAuthor = ({ post }) => {
   return (
     <div className='flex items-center border-b p-2'>
-      <div className='relative h-12 w-12 max-w-full flex-shrink-0 overflow-hidden rounded-full'>
-        <Image
-          className='object-middle object-cover'
-          src={post.author?.picture?.url}
-          alt=''
-          fill
-        />
+      <div className='avatar'>
+        <div className='w-12 rounded-full'>
+          <Image
+            className='object-contain'
+            src={post.author?.picture?.url}
+            alt=''
+            width={48}
+            height={48}
+          />
+        </div>
       </div>
       <div className='ml-3 flex items-center gap-4'>
         <p className='prose-lg prose font-medium'>{post.author?.name}</p>

@@ -12,7 +12,7 @@ export const Post = ({ post }) => {
     <Link href={`posts/${post.slug}`}>
       <div className='h-full rounded-sm shadow-lg'>
         <PostAuthor post={post} />
-        <div className='flex w-full justify-between'>
+        <div className='flex w-full flex-col justify-between md:flex-row'>
           <div className='flex flex-1 flex-col justify-between p-4'>
             <div className='flex-1'>
               <a href={post.href} className='my-2 block'>
@@ -29,8 +29,14 @@ export const Post = ({ post }) => {
                 ))}
             </ul>
           </div>
-          <div className='relative m-4 h-28 w-28 overflow-hidden md:h-36 md:w-36'>
-            <Image alt='' src={image} fill className=' w-full object-cover' />
+          <div className='relative h-48 w-full md:w-64'>
+            <Image
+              alt=''
+              fill
+              className='object-cover'
+              src={image}
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            />
           </div>
         </div>
       </div>

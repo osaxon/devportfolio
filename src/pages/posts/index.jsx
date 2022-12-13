@@ -68,6 +68,7 @@ const Posts = () => {
   return (
     <Layout>
       <Seo
+        title='Blog | Oli Saxon'
         description='Latest blog posts from Oli Saxon.'
         keywords='web development, Next.js'
       />
