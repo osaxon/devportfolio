@@ -33,10 +33,10 @@ const HeroSection = () => {
           <div className='flex flex-col'>
             <h1 className='text-5xl md:text-5xl xl:text-6xl'>Hello there </h1>
             <h2 className='mt-1 text-4xl md:text-5xl xl:text-6xl'>
-              My name&apos;s Oliver
+              My name&apos;s Oli
             </h2>
 
-            <p className=' mt-4 max-w-4xl md:mt-6 md:text-lg'>
+            <p className='mt-4 max-w-4xl text-2xl md:mt-6 md:text-3xl'>
               I&apos;m a freelance web developer specialising in React and
               Next.JS
             </p>
@@ -76,7 +76,7 @@ const HeroSection = () => {
         </motion.div>
         <div
           ref={ref}
-          className='absolute left-0 top-10 -z-50  overflow-hidden md:left-80'
+          className='absolute left-10 top-10 -z-50  overflow-hidden md:left-80'
         >
           <SvgElem className='transform-gpu fill-accent opacity-80 dark:opacity-50' />
         </div>

@@ -5,7 +5,7 @@ import DateComponent from './DateComponent';
 
 const PostAuthor = ({ post }) => {
   return (
-    <div className='flex items-center border-b p-2'>
+    <div className='flex items-center py-2'>
       <div className='avatar'>
         <div className='w-12 rounded-full'>
           <Image

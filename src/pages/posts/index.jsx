@@ -92,9 +92,12 @@ const Posts = () => {
                 ))}
             </ul>
 
-            <ul className='mt-12 flex flex-col gap-y-4'>
+            <ul className='mt-12 flex flex-col gap-y-4 divide-y-2 divide-primary'>
               {filteredPosts.map((post) => (
-                <li className='cursor-pointer' key={post.slug}>
+                <li
+                  className='cursor-pointer border-primary py-2 first:border-t-2 last:border-b-4'
+                  key={post.slug}
+                >
                   <Post post={post} />
                 </li>
               ))}
