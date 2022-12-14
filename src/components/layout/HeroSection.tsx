@@ -5,19 +5,23 @@ import { AiFillGithub } from 'react-icons/ai';
 import { CgFileDocument } from 'react-icons/cg';
 import { useParallax } from 'react-scroll-parallax';
 
-import SvgElem from '@/components/SvgElem';
-
 const HeroSection = () => {
-  const { ref } = useParallax<HTMLDivElement>({
-    rotateZ: [240, 360],
-    translateY: [0, 70],
-    translateX: [-45, 45],
-    scale: [0.75, 2.75, 'easeInQuad'],
+  const { ref: recOne } = useParallax<HTMLDivElement>({
+    speed: -200,
+    translateX: [-100, 100],
+  });
+  const { ref: recTwo } = useParallax<HTMLDivElement>({
+    speed: -100,
+    translateX: [-100, 100],
+  });
+  const { ref: recThree } = useParallax<HTMLDivElement>({
+    speed: -300,
+    translateX: [-100, 100],
   });
 
   return (
-    <section className='flex overflow-hidden'>
-      <div className='layout relative z-30 min-h-screen'>
+    <section className='relative flex overflow-clip'>
+      <div className='layout relative min-h-screen'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -75,10 +79,16 @@ const HeroSection = () => {
           </div>
         </motion.div>
         <div
-          ref={ref}
-          className='absolute left-10 top-10 -z-50  overflow-hidden md:left-80'
+          ref={recOne}
+          className='absolute -left-16 top-0 -z-50 h-full w-full'
         >
-          <SvgElem className='transform-gpu fill-accent opacity-80 dark:opacity-50' />
+          <div className='absolute -z-50 h-full w-96 skew-x-12 bg-secondary bg-opacity-50'></div>
+        </div>
+        <div ref={recTwo} className='absolute top-20 h-full w-full'>
+          <div className='absolute left-48 bottom-0 -z-50 h-80 w-60 skew-x-12 bg-accent bg-opacity-75 md:left-80'></div>
+        </div>
+        <div ref={recThree} className='absolute top-20 h-full w-full'>
+          <div className='absolute left-64 bottom-0 -z-50 h-96 w-48 skew-x-12 bg-primary bg-opacity-75 md:left-96'></div>
         </div>
       </div>
     </section>

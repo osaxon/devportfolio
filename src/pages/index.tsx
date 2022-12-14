@@ -12,7 +12,7 @@ export default function HomePage() {
       {/* <Seo templateTitle='Home' /> */}
       <Seo title='Oli Saxon | freelance developer' />
 
-      <main className='bg-texture-bg'>
+      <main className='from-base bg-gradient-to-b to-transparent'>
         <HeroSection />
         <SkillsSection />
         <ContactForm />

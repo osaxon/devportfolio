@@ -36,11 +36,13 @@ export default function Header() {
   };
 
   return (
-    <header className='from-base sticky top-0 z-50 w-full border-b border-b-accent bg-gradient-to-b to-transparent backdrop-blur-lg'>
-      <nav className='layout'>
+    <header className='from-base sticky top-0 z-50 w-full bg-gradient-to-b to-transparent backdrop-blur-lg'>
+      <nav className='layout border-b-2'>
         <div className='flex h-16 items-center justify-between'>
           <Link href='/'>
-            <a className='font-mono text-2xl font-bold'>Oli Saxon</a>
+            <a className='font-mono text-2xl font-bold text-base-content'>
+              Oli Saxon
+            </a>
           </Link>
           <div className='flex items-center gap-4'>
             <Link href='/posts'>Blog</Link>

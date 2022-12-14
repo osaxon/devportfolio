@@ -48,24 +48,24 @@
   /* #region  /**=========== Typography =========== */
 
   h1 {
-    @apply font-primary text-2xl font-bold transition-colors md:text-4xl;
+    @apply font-primary text-2xl font-bold text-base-content transition-colors md:text-4xl;
   }
 
   h2 {
-    @apply font-primary text-xl font-bold transition-colors md:text-3xl;
+    @apply font-primary text-xl font-bold text-base-content transition-colors md:text-3xl;
   }
 
   h3 {
-    @apply font-primary text-lg font-bold text-base-content  transition-colors  md:text-2xl;
+    @apply font-primary text-lg font-bold text-base-content transition-colors  md:text-2xl;
   }
 
   h4 {
-    @apply font-primary text-base font-bold text-primary-content transition-colors  md:text-lg;
+    @apply font-primary text-base font-bold text-base-content transition-colors  md:text-lg;
   }
 
   body,
   p {
-    @apply font-primary text-sm  transition-colors  md:text-base;
+    @apply font-primary text-sm text-base-content transition-colors  md:text-base;
   }
   /* #endregion  /**======== Typography =========== */
 
