@@ -20,8 +20,8 @@ const HeroSection = () => {
   });
 
   return (
-    <section className='relative flex overflow-clip'>
-      <div className='layout relative min-h-screen'>
+    <section className='relative flex'>
+      <div className='layout relative min-h-screen overflow-clip'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -78,18 +78,15 @@ const HeroSection = () => {
             </div>
           </div>
         </motion.div>
-        <div
-          ref={recOne}
-          className='absolute -left-16 top-0 -z-50 h-full w-full'
-        >
-          <div className='absolute -z-50 h-full w-96 skew-x-12 bg-secondary bg-opacity-50'></div>
-        </div>
-        <div ref={recTwo} className='absolute top-20 h-full w-full'>
-          <div className='absolute left-48 bottom-0 -z-50 h-80 w-60 skew-x-12 bg-accent bg-opacity-75 md:left-80'></div>
-        </div>
-        <div ref={recThree} className='absolute top-20 h-full w-full'>
-          <div className='absolute left-64 bottom-0 -z-50 h-96 w-48 skew-x-12 bg-primary bg-opacity-75 md:left-96'></div>
-        </div>
+      </div>
+      <div ref={recOne} className='absolute -left-16 top-0 -z-50 h-full w-full'>
+        <div className='absolute -z-50 h-full w-96 skew-x-12 bg-secondary bg-opacity-50'></div>
+      </div>
+      <div ref={recTwo} className='absolute top-20 h-full w-full'>
+        <div className='absolute left-48 bottom-0 -z-50 h-80 w-60 skew-x-12 bg-accent bg-opacity-75 md:left-80'></div>
+      </div>
+      <div ref={recThree} className='absolute top-20 -z-50 h-full w-full'>
+        <div className='absolute left-64 bottom-0 -z-50 h-96 w-48 skew-x-12 bg-primary bg-opacity-75 md:left-96'></div>
       </div>
     </section>
   );
