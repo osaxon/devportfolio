@@ -21,7 +21,7 @@ const HeroSection = () => {
 
   return (
     <section className='relative flex'>
-      <div className='layout relative min-h-screen overflow-clip'>
+      <div className='layout relative min-h-screen overflow-hidden'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
