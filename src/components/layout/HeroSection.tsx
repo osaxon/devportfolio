@@ -20,19 +20,18 @@ const HeroSection = () => {
           exit={{ opacity: 0, y: -50 }}
           className='z-50 flex flex-col py-20'
         >
-          <div className='flex flex-col'>
+          <div className='py-20'>
             <h1 className='text-5xl md:text-5xl xl:text-6xl'>Hello there </h1>
             <h2 className='mt-1 text-4xl md:text-5xl xl:text-6xl'>
               My name&apos;s Oli
             </h2>
+          </div>
 
+          <div>
             <p className='mt-4 max-w-4xl text-2xl md:mt-6 md:text-3xl'>
               I&apos;m a freelance web developer specialising in React and
               Next.JS
             </p>
-          </div>
-
-          <div>
             <div className='mt-6 flex flex-wrap gap-4'>
               <Link href='mailto:oliverrsaxon@gmail.com'>
                 <button className='btn'>Get in touch</button>
