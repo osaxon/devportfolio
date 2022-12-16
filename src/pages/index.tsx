@@ -15,7 +15,7 @@ export default function HomePage() {
     clamp: false,
   });
   const grow = useTransform(scrollYProgress, [0, 1], ['100%', '10%']);
-  const x = useTransform(scrollYProgress, [0, 1], ['0px', '150px']);
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '75%']);
   const spring = useSpring(scrollY, {
     stiffness: 100,
     damping: 10,
@@ -29,13 +29,13 @@ export default function HomePage() {
 
       <main className='from-base overflow-hidden bg-gradient-to-b to-transparent'>
         <div className='layout relative -z-50'>
-          <section className='absolute -z-50 min-h-screen w-full overflow-x-hidden border '>
+          <section className='absolute -z-50 min-h-screen w-full overflow-x-hidden '>
             <motion.div className='absolute left-4 top-[3rem] min-h-[calc(100vh-3rem)] w-full md:left-60 md:right-0'>
               <TopSVG className='fill-secondary stroke-base-300 opacity-50' />
             </motion.div>
 
             <motion.div
-              style={{ translateY: spring, rotate, translateX: x, scale: grow }}
+              style={{ translateY: spring, rotate, translateX: x }}
               transition={{ type: 'spring' }}
               className='absolute top-[3rem] left-4 -z-50 min-h-[calc(100vh-3rem)] w-full md:left-60'
             >
