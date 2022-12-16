@@ -3,25 +3,11 @@ import Link from 'next/link';
 import React from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { CgFileDocument } from 'react-icons/cg';
-import { useParallax } from 'react-scroll-parallax';
 
 const HeroSection = () => {
-  const { ref: recOne } = useParallax<HTMLDivElement>({
-    speed: -200,
-    translateX: [-100, 100],
-  });
-  const { ref: recTwo } = useParallax<HTMLDivElement>({
-    speed: -100,
-    translateX: [-100, 100],
-  });
-  const { ref: recThree } = useParallax<HTMLDivElement>({
-    speed: -300,
-    translateX: [-100, 100],
-  });
-
   return (
-    <section className='relative flex'>
-      <div className='layout relative min-h-screen overflow-hidden'>
+    <section>
+      <div className='layout relative min-h-[calc(100vh-3rem)]'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -78,15 +64,6 @@ const HeroSection = () => {
             </div>
           </div>
         </motion.div>
-      </div>
-      <div ref={recOne} className='absolute -left-16 top-0 -z-50 h-full w-full'>
-        <div className='absolute -z-50 h-full w-96 skew-x-12 bg-secondary bg-opacity-50'></div>
-      </div>
-      <div ref={recTwo} className='absolute top-20 h-full w-full'>
-        <div className='absolute left-48 bottom-0 -z-50 h-80 w-60 skew-x-12 bg-accent bg-opacity-75 md:left-80'></div>
-      </div>
-      <div ref={recThree} className='absolute top-20 -z-50 h-full w-full'>
-        <div className='absolute left-64 bottom-0 -z-50 h-96 w-48 skew-x-12 bg-primary bg-opacity-75 md:left-96'></div>
       </div>
     </section>
   );
