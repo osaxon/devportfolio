@@ -25,16 +25,16 @@ export default function HomePage() {
       <Seo title='Oli Saxon | freelance developer' />
 
       <main className='from-base overflow-hidden bg-gradient-to-b to-transparent'>
-        <div className='layout relative'>
-          <section className='absolute -z-50 min-h-screen w-full overflow-x-hidden border'>
+        <div className='layout relative -z-50'>
+          <section className='absolute -z-50 min-h-screen w-full overflow-x-hidden '>
             <motion.div className='absolute top-10 -left-[2rem] min-h-[calc(100vh-3rem)] overflow-hidden'>
-              <TopSVG className='scale-90 fill-accent stroke-base-300 opacity-80' />
+              <TopSVG className='scale-90 fill-secondary stroke-base-300 opacity-80' />
             </motion.div>
             <motion.div
               style={{ translateY: spring, rotate }}
               className='absolute -left-[2rem] top-10 -z-50 min-h-[calc(100vh-3rem)]'
             >
-              <BottomSVG className='scale-90 fill-secondary stroke-base-300 opacity-80' />
+              <BottomSVG className='scale-90 fill-accent stroke-base-300 opacity-80' />
             </motion.div>
           </section>
         </div>
