@@ -10,7 +10,10 @@ import TopSVG from '@/components/TopSVG';
 
 export default function HomePage() {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 150], ['0%', '200%']);
+  const { scrollYProgress } = useScroll();
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 100], {
+    clamp: false,
+  });
   const spring = useSpring(scrollY, {
     stiffness: 100,
     damping: 10,
@@ -21,20 +24,17 @@ export default function HomePage() {
       {/* <Seo templateTitle='Home' /> */}
       <Seo title='Oli Saxon | freelance developer' />
 
-      <main className='from-base bg-gradient-to-b to-transparent'>
+      <main className='from-base overflow-hidden bg-gradient-to-b to-transparent'>
         <div className='layout relative'>
-          <section className='absolute -z-50 min-h-screen w-screen overflow-x-hidden'>
-            <motion.div
-              className='absolute top-10 left-[2rem] min-h-[calc(100vh-3rem)] overflow-hidden'
-              style={{ translateY: spring }}
-            >
-              <TopSVG className='fill-accent stroke-base-300 opacity-80' />
+          <section className='absolute -z-50 min-h-screen w-full overflow-x-hidden border'>
+            <motion.div className='absolute top-10 -left-[2rem] min-h-[calc(100vh-3rem)] overflow-hidden'>
+              <TopSVG className='scale-90 fill-accent stroke-base-300 opacity-80' />
             </motion.div>
             <motion.div
-              style={{ translateX: spring, translateY: spring }}
-              className='absolute left-[2rem] top-10 -z-50 min-h-[calc(100vh-3rem)]'
+              style={{ translateY: spring, rotate }}
+              className='absolute -left-[2rem] top-10 -z-50 min-h-[calc(100vh-3rem)]'
             >
-              <BottomSVG className='fill-secondary stroke-base-300 opacity-80' />
+              <BottomSVG className='scale-90 fill-secondary stroke-base-300 opacity-80' />
             </motion.div>
           </section>
         </div>

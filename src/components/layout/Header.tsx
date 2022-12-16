@@ -24,14 +24,8 @@ export default function Header() {
   ];
   const { theme, setTheme } = useTheme();
   const [rotate, setRotate] = useState(false);
-  const [angle, setAngle] = useState(90);
   const handleClick = () => {
     setTheme(themes[Math.floor(Math.random() * themes.length)]);
-    if (angle === 360) {
-      setAngle(90);
-    } else {
-      setAngle(angle + 90);
-    }
     setRotate(!rotate);
   };
 
@@ -47,7 +41,8 @@ export default function Header() {
           <div className='flex items-center gap-4'>
             <Link href='/posts'>Blog</Link>
             <motion.div
-              animate={{ rotate: rotate ? angle : 0 }}
+              animate={{ rotate: rotate ? 360 : 0 }}
+              transition={{ type: 'spring' }}
               onClick={handleClick}
               className='block'
             >
