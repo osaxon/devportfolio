@@ -13,14 +13,12 @@ export default function HomePage() {
   const { scrollY } = useScroll();
   const scrollRef = useRef(null);
   const translateX = useSpring(scrollY, {
-    stiffness: 50,
+    stiffness: 100,
     damping: 10,
-    restDelta: 0.001,
   });
   const translateY = useSpring(scrollY, {
-    stiffness: 50,
+    stiffness: 100,
     damping: 10,
-    restDelta: 0.001,
   });
 
   return (
@@ -29,16 +27,25 @@ export default function HomePage() {
       <Seo title='Oli Saxon | freelance developer' />
 
       <main className='from-base bg-gradient-to-b to-transparent'>
-        <div ref={scrollRef} className='layout relative top-10'>
-          <TopSVG className='absolute top-10 scale-90 fill-secondary md:scale-100' />
-          <motion.div
-            viewport={{ root: scrollRef }}
-            style={{ translateX: translateX, translateY: translateY }}
-          >
-            <div className='absolute h-[calc(100vh-3rem)]'>
-              <BottomSVG className='absolute top-10 scale-90 fill-primary opacity-75 md:scale-100' />
-            </div>
-          </motion.div>
+        <div ref={scrollRef} className='layout relative'>
+          <div className='absolute h-screen border'>
+            <motion.div
+              viewport={{ root: scrollRef }}
+              style={{ translateX: translateX, translateY: translateY }}
+            >
+              <div className='absolute'>
+                <TopSVG />
+              </div>
+            </motion.div>
+            <motion.div
+              viewport={{ root: scrollRef }}
+              style={{ translateY: translateY }}
+            >
+              <div className='absolute'>
+                <BottomSVG />
+              </div>
+            </motion.div>
+          </div>
         </div>
         <HeroSection />
         <SkillsSection />
