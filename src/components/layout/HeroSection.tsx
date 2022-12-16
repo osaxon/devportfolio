@@ -29,8 +29,7 @@ const HeroSection = () => {
 
           <div>
             <p className='mt-4 max-w-4xl text-2xl md:mt-6 md:text-3xl'>
-              I&apos;m a freelance web developer specialising in React and
-              Next.JS
+              Frontend web developer specialising in React.
             </p>
             <div className='mt-6 flex flex-wrap gap-4'>
               <Link href='mailto:oliverrsaxon@gmail.com'>

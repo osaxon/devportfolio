@@ -9,7 +9,7 @@ import SkillCard from '@/components/SkillCard';
 const skills = [
   {
     name: 'Frontend',
-    desc: 'Good understanding of core frontend technologies and programming concepts.',
+    desc: 'Solid understanding of frontend technologies and programming concepts.',
     icon: FaReact,
     skills: ['HTML, JavaScript & CSS', 'React', 'Next.JS', 'GraphQL'],
   },
@@ -21,7 +21,7 @@ const skills = [
   },
   {
     name: 'Other',
-    desc: 'Use analytics tools to monitor your sites traffic and performance',
+    desc: 'Broad range of skills developed over 10 years in the tech industry',
     icon: IoIosAnalytics,
     skills: ['Git', 'Jira', 'Stripe API', 'Agile & Scrum'],
   },

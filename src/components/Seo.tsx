@@ -5,11 +5,11 @@ import { useRouter } from 'next/router';
 // Default meta will be applied whenever the Seo component is rendered
 // Properties can be overwritten per page
 const defaultMeta = {
-  title: 'Site title',
-  siteName: 'Site name',
-  description: '',
+  title: 'Oli Saxon | web developer portfolio',
+  siteName: 'Oli Saxon',
+  description: 'Oli Saxon is a frontend web developer based in the UK.',
   keywords: '',
-  url: 'https://www.yourwebsite.co.uk',
+  url: 'https://www.olisaxon.co.uk',
   type: 'website',
   robots: 'follow, index',
   image: '',
