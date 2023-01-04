@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
 import { RichText } from '@graphcms/rich-text-react-renderer';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import Image from 'next/future/image';
 import { useRouter } from 'next/router';
 import Prism from 'prismjs';
 import React, { useEffect } from 'react';
-import { dehydrate, QueryClient, useQuery } from 'react-query';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-jsx';
@@ -21,7 +21,7 @@ import { getSinglePost } from '../../lib/queries';
 const Post = ({ notFound }) => {
   const { query } = useRouter();
   const { data } = useQuery(
-    ['get_post', query.slug],
+    [['get_post'], query.slug],
     () => getSinglePost(query),
     {
       enabled: query.length > 0,

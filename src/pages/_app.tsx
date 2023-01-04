@@ -1,12 +1,13 @@
-import { AppProps } from 'next/app';
-import { ThemeProvider } from 'next-themes';
-import { useRef } from 'react';
 import {
   DehydratedState,
   Hydrate,
   QueryClient,
   QueryClientProvider,
-} from 'react-query';
+} from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
+import { useRef } from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 import '@/styles/globals.css';
@@ -33,6 +34,7 @@ function MyApp({
           </ThemeProvider>
         </ParallaxProvider>
       </Hydrate>
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }

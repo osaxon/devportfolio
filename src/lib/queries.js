@@ -77,14 +77,20 @@ function extractTags(data) {
 
 // get all blog posts and tags for /posts page
 export const getAllPosts = async () => {
-  const data = await client.query({
-    query: ALL_BLOG_POSTS,
-  });
-
-  return {
-    posts: data.data.posts,
-    tags: extractTags(data.data.posts),
-  };
+  try {
+    const posts = await client.query({
+      query: ALL_BLOG_POSTS,
+    });
+    if (posts) {
+      const data = {
+        posts: posts.data.posts,
+        tags: extractTags(posts.data.posts),
+      };
+      return data;
+    }
+  } catch (err) {
+    return Promise.reject(new Error('Oh no!..'));
+  }
 };
 
 // SINGLE BLOG POST BY SLUG. RETURNS POST AND RICH TEXT CONTENT AS SEPARATE OBJECTS
@@ -103,4 +109,23 @@ export const getSinglePost = async (slug) => {
       .toURL(),
     content: data.data.posts[0].content,
   };
+};
+
+export const sendMessage = async (data) => {
+  const res = await fetch('/api/sendgrid', {
+    body: JSON.stringify({
+      email: data.email,
+      name: data.name,
+      message: data.message,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
+  await res.json();
+  if (res.error) {
+    return;
+  }
+  return res;
 };
