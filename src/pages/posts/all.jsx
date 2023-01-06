@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import Layout from '../../components/layout/Layout';
 import Seo from '../../components/Seo';
 import client from '../../lib/apolloClient';
-import { getPage } from '../../lib/queries';
 
 const POST_PAGE = gql`
   query MyQuery($first: Int, $cursor: String) {
@@ -60,20 +59,12 @@ const AllPosts = () => {
     },
     onSuccess: (data) => {
       setCurrent(data?.pages[data?.pages.length - 1].data.postsConnection);
-      setPosts((prev) => [
-        ...prev,
-        data?.pages[data?.pages.length - 1].data.postsConnection.edges[
-          data?.pages[data?.pages.length - 1].data.postsConnection.edges
-            .length - 1
-        ].node,
-      ]);
-      console.log(data);
     },
   });
 
   useEffect(() => {
-    console.log(posts);
-  }, [posts]);
+    console.log(data);
+  }, [data]);
 
   return status === 'loading' ? (
     <p>Loading...</p>
@@ -87,18 +78,24 @@ const AllPosts = () => {
         keywords='web development, Next.js'
       />
       <div className='layout'>
-        {posts &&
-          posts.map((post) => (
-            <React.Fragment key={post.id}>
-              <p>{post.title}</p>
-            </React.Fragment>
-          ))}
+        {data.pages.map((page) => (
+          <React.Fragment key={page.data.postsConnection.startCursor}>
+            {page.data.postsConnection.edges.map((edge) => (
+              <p key={edge.node.id}>{edge.node.slug}</p>
+            ))}
+          </React.Fragment>
+        ))}
+
         <button
           disabled={!hasNextPage}
           className='btn'
           onClick={() => fetchNextPage()}
         >
-          {hasNextPage ? 'Load more' : 'None left'}
+          {isFetchingNextPage
+            ? 'Loading more...'
+            : hasNextPage
+            ? 'Load Newer'
+            : 'Nothing more to load'}
         </button>
       </div>
     </Layout>
