@@ -9,7 +9,7 @@ import { getAllPosts } from '../../lib/queries';
 
 function usePosts() {
   return useQuery({
-    queryKey: ['posts'],
+    queryKey: ['allPosts'],
     queryFn: getAllPosts,
   });
 }

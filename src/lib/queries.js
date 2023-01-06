@@ -6,7 +6,7 @@ import { buildImage } from './cloudinary';
 
 const ALL_BLOG_POSTS = gql`
   query Posts {
-    posts {
+    posts(first: 2) {
       createdAt
       id
       tags
@@ -35,6 +35,28 @@ const ALL_BLOG_POSTS = gql`
       id
       slug
       name
+    }
+  }
+`;
+
+const POST_PAGE = gql`
+  query Posts($first: Int, $cursor: String) {
+    posts(first: $first, after: $cursor) {
+      id
+      title
+      slug
+      excerpt
+    }
+  }
+`;
+
+const POST = gql`
+  query Post($cursor: String) {
+    posts(first: 1, after: $cursor) {
+      id
+      slug
+      title
+      excerpt
     }
   }
 `;
@@ -91,6 +113,17 @@ export const getAllPosts = async () => {
   } catch (err) {
     return Promise.reject(new Error('Oh no!..'));
   }
+};
+
+export const getPage = async (first = 2, cursor) => {
+  const {
+    posts: { data },
+  } = await client.query({
+    query: POST_PAGE,
+    variables: { first, cursor },
+  });
+
+  return data;
 };
 
 // SINGLE BLOG POST BY SLUG. RETURNS POST AND RICH TEXT CONTENT AS SEPARATE OBJECTS

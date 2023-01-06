@@ -26,7 +26,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className='layout my-10 flex w-full flex-col items-center border p-10 md:w-[600px]'>
+    <div className='layout flex w-full flex-col items-center bg-primary bg-opacity-20 p-10 md:w-[600px]'>
       {send.status === 'success' ? (
         <div className='alert alert-success shadow-lg'>
           <div>
