@@ -1,11 +1,16 @@
 import { gql } from '@apollo/client';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import Image from 'next/future/image';
+import Link from 'next/link';
 import React, { useCallback, useState } from 'react';
 import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { InView } from 'react-intersection-observer';
 
 import Layout from '../../components/layout/Layout';
 import Seo from '../../components/Seo';
 import client from '../../lib/apolloClient';
+import { buildImage } from '../../lib/cloudinary';
 
 const POST_PAGE = gql`
   query MyQuery($first: Int, $cursor: String) {
@@ -23,6 +28,7 @@ const POST_PAGE = gql`
           id
           slug
           title
+          coverImage
         }
       }
     }
@@ -30,19 +36,17 @@ const POST_PAGE = gql`
 `;
 
 const AllPosts = () => {
-  const [current, setCurrent] = useState('');
-  const [posts, setPosts] = useState([]);
+  const [scrollY, setScrollY] = useState(0);
+  const { ref, inView } = useInView({ threshold: 1, delay: 300 });
+
   const {
     status,
     data,
     error,
     isFetching,
     isFetchingNextPage,
-    isFetchingPreviousPage,
     fetchNextPage,
-    fetchPreviousPage,
     hasNextPage,
-    hasPreviousPage,
   } = useInfiniteQuery({
     queryKey: ['posts_page'],
     queryFn: async ({ pageParam }) => {
@@ -57,14 +61,31 @@ const AllPosts = () => {
       }
       return undefined;
     },
-    onSuccess: (data) => {
-      setCurrent(data?.pages[data?.pages.length - 1].data.postsConnection);
-    },
   });
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    // just trigger this so that the initial state
+    // is updated as soon as the component is mounted
+    // related: https://stackoverflow.com/a/63408216
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView, fetchNextPage]);
 
   return status === 'loading' ? (
     <p>Loading...</p>
@@ -77,16 +98,36 @@ const AllPosts = () => {
         description='Latest blog posts from Oli Saxon.'
         keywords='web development, Next.js'
       />
-      <div className='layout'>
-        {data.pages.map((page) => (
-          <React.Fragment key={page.data.postsConnection.startCursor}>
-            {page.data.postsConnection.edges.map((edge) => (
-              <p key={edge.node.id}>{edge.node.slug}</p>
-            ))}
-          </React.Fragment>
-        ))}
+      <div className='layout relative flex min-h-screen flex-col justify-between'>
+        <section>
+          {data.pages.map((page) => (
+            <ul className='border' key={page.data.postsConnection.startCursor}>
+              {page.data.postsConnection.edges.map((edge) => (
+                <li
+                  className='relative h-[calc(100vh-15rem)] w-full cursor-pointer'
+                  key={edge.node.id}
+                >
+                  <Link href={edge.node.slug}>
+                    <h3 className='text-4xl text-primary-content'>
+                      {edge.node.title}
+                    </h3>
+                  </Link>
+                  <Image
+                    alt='image'
+                    src={buildImage(edge.node.coverImage.public_id)
+                      .resize('w_1200,h_900')
+                      .toURL()}
+                    fill
+                    className='absolute -z-50 object-cover'
+                  />
+                </li>
+              ))}
+            </ul>
+          ))}
+        </section>
 
         <button
+          ref={ref}
           disabled={!hasNextPage}
           className='btn'
           onClick={() => fetchNextPage()}
@@ -94,9 +135,10 @@ const AllPosts = () => {
           {isFetchingNextPage
             ? 'Loading more...'
             : hasNextPage
-            ? 'Load Newer'
+            ? 'Load More'
             : 'Nothing more to load'}
         </button>
+        <p className='fixed bottom-0 text-4xl text-white'>{scrollY}</p>
       </div>
     </Layout>
   );
