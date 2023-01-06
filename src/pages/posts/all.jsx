@@ -31,6 +31,8 @@ const POST_PAGE = gql`
 `;
 
 const AllPosts = () => {
+  const [current, setCurrent] = useState('');
+  const [posts, setPosts] = useState([]);
   const {
     status,
     data,
@@ -56,11 +58,22 @@ const AllPosts = () => {
       }
       return undefined;
     },
+    onSuccess: (data) => {
+      setCurrent(data?.pages[data?.pages.length - 1].data.postsConnection);
+      setPosts((prev) => [
+        ...prev,
+        data?.pages[data?.pages.length - 1].data.postsConnection.edges[
+          data?.pages[data?.pages.length - 1].data.postsConnection.edges
+            .length - 1
+        ].node,
+      ]);
+      console.log(data);
+    },
   });
 
   useEffect(() => {
-    console.log(data);
-  });
+    console.log(posts);
+  }, [posts]);
 
   return status === 'loading' ? (
     <p>Loading...</p>
@@ -73,8 +86,21 @@ const AllPosts = () => {
         description='Latest blog posts from Oli Saxon.'
         keywords='web development, Next.js'
       />
-      {JSON.stringify(data.pages)}
-      <button onClick={() => fetchNextPage()}>fetchNextPage</button>
+      <div className='layout'>
+        {posts &&
+          posts.map((post) => (
+            <React.Fragment key={post.id}>
+              <p>{post.title}</p>
+            </React.Fragment>
+          ))}
+        <button
+          disabled={!hasNextPage}
+          className='btn'
+          onClick={() => fetchNextPage()}
+        >
+          {hasNextPage ? 'Load more' : 'None left'}
+        </button>
+      </div>
     </Layout>
   );
 };
