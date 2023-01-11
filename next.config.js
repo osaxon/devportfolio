@@ -5,10 +5,9 @@ module.exports = {
   },
 
   reactStrictMode: true,
+
   experimental: {
-    image: {
-      allowFutureImage: true,
-    },
+    appDir: true,
   },
 
   images: {
