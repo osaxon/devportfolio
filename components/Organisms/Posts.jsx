@@ -24,7 +24,6 @@ const Posts = () => {
         if (inView) {
           fetchNextPage();
         }
-        console.log(data)
       }, [inView, fetchNextPage]);
   
     return status === 'loading' ? (
