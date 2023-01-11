@@ -14,7 +14,7 @@ export default function Header() {
             Oli Saxon
           </Link>
           <div className='flex items-center gap-4'>
-            <Link href='/posts/all'>Blog</Link>
+            <Link href='/blog'>Blog</Link>
             <ThemeSwitcher />
           </div>
         </div>

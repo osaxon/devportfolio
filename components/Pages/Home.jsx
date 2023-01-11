@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Intro, Projects, Skills } from '../Organisms';
 
-export const Home = async () => {
+export default async function Home () {
   return (
     <main>
       <Intro />
