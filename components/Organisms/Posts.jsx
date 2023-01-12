@@ -28,8 +28,8 @@ const Posts = () => {
   
     return status === 'loading' ? (
         <Spinner />
-    ) : status === 'error' ? (
-        <span>Error</span>
+    ) : error ? (
+        <span>Oh no, something went wrong!</span>
     ) : (
     <section className='layout flex flex-col gap-4'>
         {data && data.pages?.map((page) => (
@@ -40,7 +40,7 @@ const Posts = () => {
                   key={edge.node.id}
                 >
                   <Link
-                    className='text-4xl text-primary-content'
+                    className='text-4xl text-base-content'
                     href={`/blog/${edge.node.slug}`}
                   >
                     {edge.node.title}
@@ -55,11 +55,11 @@ const Posts = () => {
           className='btn'
           onClick={() => fetchNextPage()}
         >
-          {isFetchingNextPage
-            ? 'Loading more...'
+          {isFetchingNextPage || isFetching
+            ? <Spinner />
             : hasNextPage
             ? 'Load More'
-            : 'Nothing more to load'}
+            : null}
         </button>
     </section>
   )

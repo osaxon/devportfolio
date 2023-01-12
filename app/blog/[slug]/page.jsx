@@ -5,7 +5,8 @@ import { PostPage } from '@/components/Pages'
 import { Spinner } from '../../../components/Atoms';
 
 async function getPostData(slug){
-    const post = await fetch(`http://localhost:3000/api/get-post/?slug=${slug}`)
+    const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000/api/" : "https://www.olisaxon.co.uk/api/"
+    const post = await fetch(`${BASE_URL}get-post/?slug=${slug}`)
     return (await post.json())
 }
 
