@@ -1,21 +1,7 @@
+'use client'
 import React from 'react';
 
-import { Project } from '@/components/Molecules';
-
-import client from '../../lib/apolloClient';
-import { PROJECTS_QUERY } from '../../lib/queries';
-
-async function getProjectsData() {
-  const res = await client.query({
-    query: PROJECTS_QUERY,
-  });
-  const projects = res.data.projects;
-  console.log(res);
-  return projects;
-}
-
-const Projects = async () => {
-  const projects = await getProjectsData();
+export default function Projects ({projects}) {
   return (
     <section className='bg-base z-50 min-h-screen border bg-base-100'>
       <div className='layout'>
@@ -24,7 +10,7 @@ const Projects = async () => {
           {projects &&
             projects.map((p) => (
               <React.Fragment key={p.slug}>
-                <Project project={p} />
+                <p>{p.name}</p>
               </React.Fragment>
             ))}
         </ul>
@@ -32,5 +18,3 @@ const Projects = async () => {
     </section>
   );
 };
-
-export default Projects;

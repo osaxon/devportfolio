@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import React from 'react';
 import { FaReact } from 'react-icons/fa';
 import { FaHandsHelping } from 'react-icons/fa';
 import { IoIosAnalytics } from 'react-icons/io';
@@ -34,7 +32,7 @@ const skills = [
   },
 ];
 
-const SkillsSection = () => {
+const Skills = () => {
   return (
     <section className='x-50 bg-opacity-50 bg-texture-bg backdrop-blur-lg'>
       <div className='layout flex flex-col items-center'>
@@ -61,4 +59,4 @@ const SkillsSection = () => {
   );
 };
 
-export default SkillsSection;
+export default Skills

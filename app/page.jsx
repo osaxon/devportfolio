@@ -1,7 +1,23 @@
-import { Home } from '@/components/Pages';
+import { Intro, Projects, Skills } from '@/components/Organisms'
 
-export default function Page() {
-  return <Home />;
+import client from '../lib/apolloClient';
+import { PROJECTS_QUERY } from '../lib/queries';
+
+async function getProjectsData() {
+  const res = await client.query({
+    query: PROJECTS_QUERY,
+  });
+  const projects = res.data.projects;
+  return projects;
 }
 
-export const revalidate = 60;
+export default async function Page() {
+  const projects = await getProjectsData();
+  return (
+    <main>
+      <Intro />
+      <Skills />
+      <Projects projects={projects} />
+    </main>
+  )
+}

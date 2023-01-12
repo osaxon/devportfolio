@@ -10,16 +10,15 @@ import AppWrapper from './AppWrapper'
 export default function RootLayout({ children }) {
     return (
         <ServerThemeProvider>
-        <html lang='en'>
-            <head>
-            </head>
-            <body>
-            <AppWrapper>
-                <Header />
-                    {children}
-                </AppWrapper>
-            </body>
-        </html>
+            <html lang='en'>
+                <head/>
+                <body>
+                    <AppWrapper>
+                        <Header />
+                        {children}
+                    </AppWrapper>
+                </body>
+            </html>
         </ServerThemeProvider>
     )
 }
