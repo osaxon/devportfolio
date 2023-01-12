@@ -5,10 +5,10 @@ import Image from 'next/image';
 import Prism from 'prismjs';
 import React, { useEffect, useState } from 'react';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-jsx';
 
-import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 
 import { Spinner } from '../Atoms';
@@ -16,12 +16,16 @@ import { Spinner } from '../Atoms';
 
 const PostPage = ({post}) => {
     const [mounted, setMounted] = useState(false)
+
     useEffect(() => {
         setMounted(true)
-        Prism.highlightAll();
-      },[]);
+    },[]);
 
-    if(!mounted) return null
+    useEffect(() => {
+      Prism.highlightAll();
+    })
+
+  if(!mounted) return null
 
   return (
     <React.Suspense fallback={<Spinner />}>
@@ -30,11 +34,9 @@ const PostPage = ({post}) => {
         renderers={{
         code_block: ({ children }) => {
           return (
-            <div className='Code'>
-                <pre className=''>
-                    <code className='line-numbers language-jsx'>{children}</code>
+                <pre className='language-jsx rounded-md'>
+                    <code className='language-jsx'>{children}</code>
                 </pre>
-            </div>
           );
         },
         ol: ({ children }) => (

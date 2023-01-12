@@ -1,5 +1,6 @@
 import { ServerThemeProvider } from '@wits/next-themes'
 
+import '@/styles/prism-dracula.css';
 import '@/styles/globals.css';
 
 import { Header } from '@/components/Organisms'
