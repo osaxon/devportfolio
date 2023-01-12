@@ -1,7 +1,6 @@
-import { BlogPage } from '../../components/Pages';
+import { Posts } from '@/components/Organisms'
 
-const Page = async () => {
-  return <BlogPage />;
+export default function Page() {
+  return <Posts />;
 };
 
-export default Page;
