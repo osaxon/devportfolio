@@ -10,26 +10,26 @@ const ParallaxBG = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 110], {
     clamp: false,
   });
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '90%']);
   const spring = useSpring(scrollY, {
     stiffness: 150,
     damping: 15,
     mass: 2,
   });
   return (
-      <div className='absolute rotate-12 top-[10rem] -z-50 h-[calc(100vh*2)] right-0 translate-x-6 md:right-[10rem] lg:right-[20rem] w-[500px] overflow-x-hidden'>
-        <motion.div className='absolute top-4'>
-          <SquareA className='fill-secondary stroke-base-300 opacity-50' />
-        </motion.div>
+    <div className='absolute left-[-9rem] top-[5rem] -z-50 h-[calc(100vh*2)] w-[400px] translate-x-6 rotate-12 @lg:w-full md:top-[3rem]'>
+      <motion.div className='absolute md:right-24 lg:right-56'>
+        <SquareA className='fill-secondary stroke-base-300 opacity-50' />
+      </motion.div>
 
-        <motion.div
-          style={{ translateY: spring, rotate, translateX: x }}
-          transition={{ type: 'spring' }}
-          className='absolute top-4 -z-50 w-[500px]'
-        >
-          <SquareB className='fill-accent stroke-base-300 opacity-50' />
-        </motion.div>
-      </div>
+      <motion.div
+        style={{ translateY: spring, rotate, translateX: x }}
+        transition={{ type: 'spring' }}
+        className='absolute -z-50 md:right-24 lg:right-56'
+      >
+        <SquareB className='fill-accent stroke-base-300 opacity-50' />
+      </motion.div>
+    </div>
   );
 };
 

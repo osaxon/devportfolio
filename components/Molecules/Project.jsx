@@ -1,6 +1,7 @@
 import { RichText } from '@graphcms/rich-text-react-renderer';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import { LinkExternal } from '../Atoms';
 
 const Project = ({ project }) => {
