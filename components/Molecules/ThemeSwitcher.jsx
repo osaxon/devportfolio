@@ -4,6 +4,8 @@ import { useTheme } from '@wits/next-themes';
 import { motion } from 'framer-motion';
 import { useEffect,useState } from 'react';
 
+import { Emoji } from '../Atoms'
+
 export const ThemeSwitcher = () => {
   const themes = [
     'light',
@@ -29,7 +31,7 @@ export const ThemeSwitcher = () => {
       onClick={handleClick}
       className='block'
     >
-      <button className='btn-square btn'>theme</button>
+      <button className='btn-square btn'><Emoji symbol="👻" label="smile"/></button>
     </motion.div>
   );
 };

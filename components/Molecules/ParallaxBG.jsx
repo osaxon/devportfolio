@@ -17,7 +17,7 @@ const ParallaxBG = () => {
     mass: 2,
   });
   return (
-      <div className='absolute rotate-12 top-[10rem] -z-50 h-[calc(100vh*2)] right-0 md:right-[10rem] lg:right-[20rem] w-[500px] overflow-x-hidden'>
+      <div className='absolute rotate-12 top-[10rem] -z-50 h-[calc(100vh*2)] right-0 translate-x-6 md:right-[10rem] lg:right-[20rem] w-[500px] overflow-x-hidden'>
         <motion.div className='absolute top-4'>
           <SquareA className='fill-secondary stroke-base-300 opacity-50' />
         </motion.div>
