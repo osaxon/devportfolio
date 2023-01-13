@@ -7,10 +7,10 @@ const CTALinks = () => {
     <>
       <div className='mt-6 flex flex-wrap gap-4'>
         <Link href='mailto:oliverrsaxon@gmail.com'>
-          <button className='btn'>Get in touch</button>
+          <button className='btn btn-accent'>Read my blog</button>
         </Link>
         <Link href='/about'>
-          <button className='btn transition-all'>Read more</button>
+          <button className='btn transition-all'>Read more about me</button>
         </Link>
       </div>
       <div className='mt-4 inline-flex gap-4'>

@@ -1,21 +1,22 @@
 import { RichText } from '@graphcms/rich-text-react-renderer';
+import Link from 'next/link';
+import Image from 'next/image';
+import { LinkExternal } from '../Atoms';
 
 const Project = ({ project }) => {
+  const {name, shortDescription, description, coverImage, tags, url, content, slug} = project
   return (
-    <div
-      tabIndex={0}
-      className='collapse-plus rounded-box collapse border border-base-300 bg-base-100'
-    >
-      <div className='collapse-title flex flex-col items-center text-xl font-medium md:flex-row'>
-        <span className='flex-shrink-0 basis-48'>{project.name}</span>
-        <span className='text-xl font-normal'>{project.shortDescription}</span>
-      </div>
-      <div className='collapse-content'>
-        <article>
-          <RichText content={project?.content?.raw} />
-        </article>
+    <div className="card rounded-sm w-full bg-base-100 shadow-xl h-full">
+      <figure className='relative h-44'><Image src={coverImage} alt={`Cover image foblog post ${name}`} fill className='object-cover absolute' /></figure>
+        <div className="card-body">
+          <h2 className="card-title">{name}</h2>
+          <p>{shortDescription}</p>
+        <div className="card-actions justify-end">
+        <Link href={`/blog/${slug}`} className="btn btn-sm">More info</Link>
+        <LinkExternal href={url}>Try</LinkExternal>
       </div>
     </div>
+  </div>
   );
 };
 

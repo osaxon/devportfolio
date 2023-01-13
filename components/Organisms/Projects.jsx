@@ -1,17 +1,16 @@
-'use client'
-import React from 'react';
+import { Project } from '../Molecules';
 
 export default function Projects ({projects}) {
   return (
-    <section className='bg-base z-50 min-h-screen border bg-base-100'>
+    <section className='bg-base z-50 min-h-screen bg-base-100 py-10 bg-texture-bg'>
       <div className='layout'>
-        <h2 className='text-center'>Projects</h2>
-        <ul className='flex flex-col gap-4'>
+        <h2 className='text-5xl py-4'>Projects</h2>
+        <ul className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           {projects &&
             projects.map((p) => (
-              <React.Fragment key={p.slug}>
-                <p>{p.name}</p>
-              </React.Fragment>
+              <li key={p.slug}>
+                <Project project={p}/>
+              </li>
             ))}
         </ul>
       </div>

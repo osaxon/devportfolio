@@ -1,17 +1,15 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useTheme } from '@wits/next-themes';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect,useState } from 'react';
 
 export const ThemeSwitcher = () => {
   const themes = [
     'light',
     'dark',
     'synthwave',
-    'retro',
     'cyberpunk',
-    'valentine',
     'aqua',
     'lofi',
     'dracula',
@@ -23,6 +21,7 @@ export const ThemeSwitcher = () => {
     setTheme(themes[Math.floor(Math.random() * themes.length)]);
     setRotate(!rotate);
   };
+
   return (
     <motion.div
       animate={{ rotate: rotate ? 360 : 0 }}
@@ -30,7 +29,7 @@ export const ThemeSwitcher = () => {
       onClick={handleClick}
       className='block'
     >
-      <button className='btn-square btn'>?</button>
+      <button className='btn-square btn'>theme</button>
     </motion.div>
   );
 };
