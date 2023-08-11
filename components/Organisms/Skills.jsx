@@ -28,7 +28,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className='x-50 bg-opacity-50 bg-texture-bg py-10 backdrop-blur-lg'>
+    <section className='x-50 bg-opacity-50 bg-texture-bg py-20 backdrop-blur-lg'>
       <div className='layout flex flex-col items-center'>
         <h2 className='text-5xl'>Skills</h2>
         <div className='mt-16 grid w-full grid-cols-1 gap-2 md:grid-cols-2'>
