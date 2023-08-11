@@ -1,3 +1,4 @@
+'use client';
 import Avatar from '@/components/Avatar';
 import NextSVG from '@/components/NextSVG';
 import NodeSVG from '@/components/NodeSVG';
@@ -15,20 +16,23 @@ export default function AboutSection() {
         <div className='flex'>
           <article className='prose z-50 mt-4 text-justify font-medium'>
             <p className='prose text-xl md:text-justify'>
-              Hi! I&apos;m Oli. I&apos;ve been learning web development since
-              February 2021 when I enrolled on a Full Stack coding bootcamp with
-              Manchester University. I&apos;ve worked in the IT industry for
-              over 10 years and always enjoyed the more creative and technical
-              aspect that coding and development offers.
+              Hi! I&apos;m Oli. I&apos;m a front end web developer.
             </p>
             <p>
-              After graduating in August 2021, I realised there&apos;s so much
-              more to learn still yet and I&apos;m enjoying the ongoing
-              challenge of learning as much as I can from small projects.
+              In 2021, I took a full-stack coding bootcamp with the University
+              of Manchester and have been obsessed since! What I enjoy most is
+              turning ideas into working projects and solving complex problems.
             </p>
             <p>
-              I&apos;m currently trying to improve my web design and UX by
-              researching other web developers and designers for inspiration.
+              Throughout my career in IT, I&apos;ve had the opportunity to work
+              with some experienced developers and learnt alot from my peers. My
+              commercial experience is mostly on the management side, having
+              most recently been a Product Manager and Developer for a
+              specialist automation platform called ServiceNow; not quite
+              fulfilling my passion for programming, after further building on
+              my programming skills with some small freelance projects, I
+              decided to invest fully into a career in web development
+              full-time.
             </p>
 
             <aside className='not-prose flex items-center justify-between gap-4 border-t border-b py-4'>

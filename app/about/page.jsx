@@ -1,5 +1,5 @@
-export default function Page(){
-    return (
-        <div>About</div>
-    )
+import AboutSection from '../../components/layout/AboutSection';
+
+export default function Page() {
+  return <AboutSection />;
 }

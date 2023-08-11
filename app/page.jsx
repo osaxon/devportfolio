@@ -1,4 +1,4 @@
-import { FeaturedPosts,Intro, Projects, Skills } from '@/components/Organisms'
+import { FeaturedPosts, Intro, Projects, Skills } from '@/components/Organisms';
 
 import client from '../lib/apolloClient';
 import { getFeaturedPosts, getFeaturedProjects } from '../lib/queries';
@@ -17,8 +17,8 @@ export default async function Page() {
   return (
     <main>
       <Intro />
-      <FeaturedPosts posts={posts} />
+      <Skills />
       <Projects projects={projects} />
     </main>
-  )
+  );
 }

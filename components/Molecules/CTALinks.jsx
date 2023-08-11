@@ -6,9 +6,6 @@ const CTALinks = () => {
   return (
     <>
       <div className='mt-6 flex flex-wrap gap-4'>
-        <Link href='mailto:oliverrsaxon@gmail.com'>
-          <button className='btn btn-accent'>Read my blog</button>
-        </Link>
         <Link href='/about'>
           <button className='btn transition-all'>Read more about me</button>
         </Link>
@@ -18,7 +15,7 @@ const CTALinks = () => {
           className='inline-flex items-center gap-1 no-underline'
           target='_blank'
           rel='noopener noreferrer'
-          href='https://shorturl.at/fr369'
+          href='https://docs.google.com/document/d/1j8rLxp61srn3urbF-FEWtpP9aufnbbd_/edit?usp=sharing&ouid=116781951992424605836&rtpof=true&sd=true'
         >
           <CgFileDocument className='h-6 w-6' />
           CV
@@ -28,7 +25,7 @@ const CTALinks = () => {
           className='inline-flex items-center gap-1 no-underline'
           target='_blank'
           rel='noopener noreferrer'
-          href='https://shorturl.at/fr369'
+          href='https://www.github.com/osaxon/'
         >
           <AiFillGithub className='h-6 w-6' />
           osaxon

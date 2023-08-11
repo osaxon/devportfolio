@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 
+import { SquareC } from '../Atoms';
 import { ParallaxBG } from '../Molecules';
 import { CTALinks } from '../Molecules';
 
