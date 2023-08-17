@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import * as React from 'react';
 import { SVGProps } from 'react';
 
 const NodeSVG = (props: SVGProps<SVGSVGElement>) => (
   <button>
-    <Link href='https://laravel.com/'>
+    <Link href='https://nodejs.org/'>
       <svg width={32} height={32} viewBox='0 0 128 128' {...props}>
         <path
           fill='#83CD29'
